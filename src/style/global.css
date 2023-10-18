@@ -10,5 +10,56 @@
 }
 
 body {
+  --main: rgb(0, 0, 0);
+  --background: rgb(255, 255, 255);
+  --highlight: rgb(253, 228, 0);
+  background-color: var(--background);
   font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--main);
+}
+
+body.dark{
+  --highlight: rgb(228, 167, 0);
+  --main: rgb(255, 255, 255);
+  --background: rgb(0, 0, 0);
+}
+
+.mainDiv, .postDiv, ol{
+  padding: 1em;
+}
+
+.mainDiv, .postDiv > p, h2, h3, h4, h5{
+  padding-top: 0.5em;
+}
+
+code, mark{
+  background-color: var(--highlight);
+  color: var(--main);
+}
+
+a{
+  text-decoration: underline;
+  color: var(--main);
+  text-decoration-color: var(--highlight);
+  transition: 0.2s;
+}
+
+a:hover{
+  opacity: 0.8;
+}
+
+h1{
+  border-bottom: 1px solid var(--main);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.mainTitle{
+  font-size: 3rem;
+  text-align: center;
+  border-top: 1px solid var(--main);
+  border-bottom: 1px solid var(--main);
+  padding: 0.2em;
+  text-transform: uppercase;
 }

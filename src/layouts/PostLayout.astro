@@ -4,10 +4,12 @@ import BaseLayout from './BaseLayout.astro'
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-<p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
-<p>Written by: {frontmatter.author}</p>
-<img src={frontmatter.image.url}/>
-<p>{frontmatter.description}</p>
-<br />
-<slot />
+    <div class="postDiv">
+        <h1>{frontmatter.title}</h1>
+        <p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+        <p>Written by: {frontmatter.author}</p>
+        <p style="text-align: center;"><img src={frontmatter.image.url}/></p>
+        <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
+        <slot />
+    </div>
 </BaseLayout>

@@ -1,11 +1,9 @@
 ---
 import Header from '../components/Header.astro'
 import Nav from '../components/Navbar.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
-  <Header Title="About" />
-  <Nav selected="about" />
-	<body>
-		<h3>About</h3>
-    <p>This is an about page.</p>
-	</body>
-</html>
+<BaseLayout pageTitle="About">
+  <h1>About</h1>
+  <p>This is an about page.</p>
+</BaseLayout>

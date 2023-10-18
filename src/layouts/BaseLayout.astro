@@ -3,11 +3,12 @@ import Header from '../components/Header.astro'
 import Nav from '../components/Navbar.astro'
 const {pageTitle} = Astro.props
 ---
-
+<html>
 <Header Title={pageTitle} />
 <Nav selected={pageTitle}/>
-	<body>
-		<h1>{pageTitle}</h1>
-		<slot />
+	<body class="dark">
+		<div class="mainDiv">
+			<slot />
+		</div>
 	</body>
 </html>
