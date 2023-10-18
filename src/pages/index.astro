@@ -1,12 +1,7 @@
 ---
-import Header from '../components/Header.astro'
-import Nav from '../components/Navbar.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
-<Header Title="Home" />
-<Nav selected="home"/>
-	<body>
-		<h3>Home</h3>
-		<p>This is a homepage.</p>
-	</body>
-</html>
+<BaseLayout pageTitle="Home">
+<p>This is an homepage.</p>
+</BaseLayout>

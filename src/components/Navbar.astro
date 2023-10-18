@@ -4,9 +4,9 @@
 ---
 
 <nav>
-<a class={selected == "home" ? "selected" : ""} href="/"><li>Home</li></a>
-<a class={selected == "about" ? "selected" : ""} href="/about"><li>About</li></a>
-<a class={selected == "blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
+<a class={selected == "Home" ? "selected" : ""} href="/"><li>Home</li></a>
+<a class={selected == "About" ? "selected" : ""} href="/about"><li>About</li></a>
+<a class={selected == "Blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
 </nav>
 
 <style>
@@ -18,15 +18,15 @@
   }
   nav > a{
     text-decoration: none;
-    color: rgb(0,0,0);
+    color: rgb(150,150,150);
     font-weight: 500;
     transition: 0.4s;
   }
   nav > a:hover{
-    opacity: 0.7;
+    color: rgb(75, 75, 75)
   }
 
   nav > a.selected{
-    color: rgb(100,100,100);
+    color: rgb(0,0,0);
   }
 </style>

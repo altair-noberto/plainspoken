@@ -1,14 +1,9 @@
 ---
-import Header from '../components/Header.astro'
-import Nav from '../components/Navbar.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
-<Header Title="Blog" />
-<Nav selected="blog" />
-	<body>
-		<h3>Blog</h3>
+<BaseLayout pageTitle="Blog">
     <p>This is an blog page.</p>
     <br />
     <a href="/posts/post1">Post 1</a>
-	</body>
-</html>
+</BaseLayout>
