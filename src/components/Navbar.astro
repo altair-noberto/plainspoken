@@ -1,0 +1,32 @@
+---
+  import '../style/global.css'
+  const {selected} = Astro.props;
+---
+
+<nav>
+<a class={selected == "home" ? "selected" : ""} href="/"><li>Home</li></a>
+<a class={selected == "about" ? "selected" : ""} href="/about"><li>About</li></a>
+<a class={selected == "blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
+</nav>
+
+<style>
+  nav{
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    padding: 1em
+  }
+  nav > a{
+    text-decoration: none;
+    color: rgb(0,0,0);
+    font-weight: 500;
+    transition: 0.4s;
+  }
+  nav > a:hover{
+    opacity: 0.7;
+  }
+
+  nav > a.selected{
+    color: rgb(100,100,100);
+  }
+</style>
