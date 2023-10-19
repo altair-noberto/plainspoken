@@ -1,9 +1,10 @@
 ---
 const {frontmatter} = Astro.props
 import BaseLayout from './BaseLayout.astro'
+const title = `Blog | ${frontmatter.title}`
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={title}>
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
         <p>Published on: {frontmatter.pubDate.slice(0,10)}</p>

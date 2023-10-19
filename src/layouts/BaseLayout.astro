@@ -5,7 +5,7 @@ const {pageTitle} = Astro.props
 ---
 <html>
 <Header Title={pageTitle} />
-<Nav selected={pageTitle}/>
+<Nav selected={pageTitle.split(' ')[0]}/>
 	<body class="dark">
 		<div class="mainDiv">
 			<slot />

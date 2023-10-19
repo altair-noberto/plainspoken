@@ -1,5 +1,6 @@
 ---
   import '../style/global.css'
+  import {Icon} from 'astro-icon'
   const {selected} = Astro.props;
 ---
 
@@ -7,9 +8,32 @@
 <a class={selected == "Home" ? "selected" : ""} href="/"><li>Home</li></a>
 <a class={selected == "About" ? "selected" : ""} href="/about"><li>About</li></a>
 <a class={selected == "Blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
+<Icon DarkLight width=27 name="mdi:theme-light-dark"/>
+</div>
 </nav>
 
-<style>
+<script>
+  document.querySelector('[DarkLight]').addEventListener('click', DarkLight)
+
+  function DarkLight(){
+    const body = document.querySelector('body')
+    if(body.classList.contains('dark')) body.classList.remove('dark')
+    else body.classList.add('dark')
+  }
+</script>
+
+<style >
+  [astro-icon]{
+    color: var(--main);
+    border-radius: 50%;
+    padding: 0.2em;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  [astro-icon]:hover{
+    color: var(--background);
+    background-color: var(--main);
+  }
   nav{
     list-style: none;
     display: flex;
@@ -29,5 +53,7 @@
 
   nav > a.selected{
     color: var(--main);
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--highlight);
   }
 </style>
