@@ -14,7 +14,7 @@ body {
   --background: rgb(255, 255, 255);
   --highlight: rgb(253, 228, 0);
   background-color: var(--background);
-  font-family: var(--font-body);
+  /* font-family: var(--font-body); */
   font-size: 1.3rem;
   color: var(--main);
 }
