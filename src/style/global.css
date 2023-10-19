@@ -25,7 +25,7 @@ body.dark{
   --background: rgb(0, 0, 0);
 }
 
-.mainDiv, .postDiv, ol{
+.mainDiv, .postDiv, ol, ul{
   padding: 1em;
 }
 
