@@ -33,8 +33,13 @@ body.dark{
   padding-top: 0.5em;
 }
 
-code, mark{
+mark{
   background-color: var(--highlight);
+  color: var(--main);
+}
+
+code{
+  background-color: rgb(150, 150, 150);
   color: var(--main);
 }
 
