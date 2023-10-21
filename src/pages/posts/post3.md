@@ -1,10 +1,13 @@
 ---
 layout: '../../layouts/PostLayout.astro'
 title: 'Why "plainspoken"'
-pubDate: 19/10/2023
-description: 'Explaning the meaning of website'
+pubDate: 2023-10-19 21:17:00
+description: 'Explaning the meaning of website.'
 author: 'Altair Noberto'
-tags: ["plainkspoken", "second-tag", "kkfmk"]
+image:
+    url: ''
+    alt: ''
+tags: ["plainspoken", "second-tag", "maybe"]
 ---
 
 Because i want to have simple, and direct communication on this blog.

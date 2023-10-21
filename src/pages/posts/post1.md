@@ -1,9 +1,12 @@
 ---
 layout: '../../layouts/PostLayout.astro'
 title: 'My First Blog Post'
-pubDate: 19/10/2023
+pubDate: 2023-10-19 17:12:00
 description: 'This is the first post.'
 author: 'Altair Noberto'
+image:
+    url: ''
+    alt: ''
 tags: ["astro", "blogging", "testing"]
 ---
 
