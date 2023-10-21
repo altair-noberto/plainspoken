@@ -17,8 +17,9 @@ const {url, title, description, date, tags} = Astro.props
         border-top: 1px solid var(--main);
     }
     .tags{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        text-align: left;
     }
 </style>

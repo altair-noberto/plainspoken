@@ -7,8 +7,14 @@ const posts = await Astro.glob('../pages/posts/*.md')
 <BaseLayout pageTitle="Blog">
     <p>This is an blog page.</p>
     <br />
-    <div class="postList">
-    {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} 
-    description={post.frontmatter.description} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} />)}
+    <div class="blogPage">
+        <div class="postList">
+            {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} 
+            description={post.frontmatter.description} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} />)}
+        </div>
+        <div class="sidebar">
+            <h3>Tags:</h3>
+            <div class="Tags">{posts.map((post) => post.frontmatter.tags.map((tag) => <a style="text-transform: capitalize;" href={"/tags/" + tag}>{tag}</a>))}</div>
+        </div>
     </div>
 </BaseLayout>
