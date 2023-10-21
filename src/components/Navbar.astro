@@ -9,25 +9,12 @@
 <a class={selected == "About" ? "selected" : ""} href="/about"><li>About</li></a>
 <a class={selected == "Blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
 <Icon DarkLight width=27 name="mdi:theme-light-dark"/>
+<Icon Font style="border-radius: 20%;" width=26 name="fa:font" />
 </div>
 </nav>
 
-<script>
-  document.querySelector('[DarkLight]').addEventListener('click', DarkLight)
-
-  function DarkLight(){
-    const body = document.querySelector('body')
-    if(body.classList.contains('dark')) {
-      body.classList.remove('dark');
-      sessionStorage.setItem('DarkLight', 'light')
-    }
-    else {
-      body.classList.add('dark');
-      sessionStorage.setItem('DarkLight', 'dark')
-    }
-  }
-</script>
-
+<script src="./Scripts/Font.js"></script>
+<script src="./Scripts/DarkLight.js"></script>
 <style >
   [astro-icon]{
     color: var(--main);
