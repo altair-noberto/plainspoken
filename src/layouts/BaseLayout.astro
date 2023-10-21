@@ -11,12 +11,4 @@ const {pageTitle} = Astro.props
 			<slot />
 		</div>
 	</body>
-	<script>
-		sessionStorage.getItem('DarkLight') ? 
-		document.querySelector('body').classList.add(sessionStorage.getItem('DarkLight')) : 
-		sessionStorage.setItem('DarkLight', 'light')
-		sessionStorage.getItem('Font') === 'sans-serif' ?
-		document.querySelector('body').style.fontFamily = 'var(--font-body)' :
-		sessionStorage.setItem('Font', 'serif')
-	</script>
 </html>

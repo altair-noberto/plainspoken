@@ -5,7 +5,7 @@ const {url, title, description, date, tags} = Astro.props
     <h3><a href={url}>{title}</a></h3>
     <div style="font-size: 0.9rem" class="tags"><strong>Tags: </strong> {tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;">{tag}</a>)}</div>
     <p>{description}</p>
-    <p>{date.slice(0,10)}</p>
+    <p>{date.slice(8,10) + '/' + date.slice(5,7) + '/' + date.slice(0,4)}</p>
 </div>
 
 <style>

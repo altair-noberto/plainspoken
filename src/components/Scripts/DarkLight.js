@@ -1,4 +1,5 @@
-document.querySelector('[DarkLight]').addEventListener('click', DarkLight)
+document.addEventListener('astro:page-load', () => {
+  document.querySelector('[DarkLight]').addEventListener('click', DarkLight)
   function DarkLight(){
     const body = document.querySelector('body')
     if(body.classList.contains('dark')) {
@@ -10,3 +11,4 @@ document.querySelector('[DarkLight]').addEventListener('click', DarkLight)
       sessionStorage.setItem('DarkLight', 'dark')
     }
   }
+})

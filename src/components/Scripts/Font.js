@@ -1,4 +1,7 @@
-document.querySelector('[Font]').addEventListener('click', Font)
+document.addEventListener('astro:page-load', () => {
+  document.querySelector('[Font]').addEventListener('click', Font)
+})
+
 function Font(){
   const body = document.querySelector('body')
   if(sessionStorage.getItem('Font') === 'serif' || !sessionStorage.getItem('Font')){
@@ -9,4 +12,4 @@ function Font(){
     sessionStorage.setItem('Font', 'serif');
     body.style.fontFamily = 'initial';
   }
-}
+  }

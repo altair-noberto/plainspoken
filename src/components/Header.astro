@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '../style/global.css'
 const {Title} = Astro.props
 ---
@@ -9,4 +10,15 @@ const {Title} = Astro.props
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{Title}</title>
+		<ViewTransitions />
 	</head>
+	<script>
+		document.addEventListener('astro:after-swap', () => {
+			sessionStorage.getItem('DarkLight') ? 
+			document.querySelector('body').classList.add(sessionStorage.getItem('DarkLight')) : 
+			sessionStorage.setItem('DarkLight', 'light')
+			sessionStorage.getItem('Font') === 'sans-serif' ?
+			document.querySelector('body').style.fontFamily = 'var(--font-body)' :
+			sessionStorage.setItem('Font', 'serif')
+		})
+	</script>

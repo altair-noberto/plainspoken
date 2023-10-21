@@ -7,7 +7,7 @@ const title = `Blog | ${frontmatter.title}`
 <BaseLayout pageTitle={title}>
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
-        <p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+        <p>Published on: {frontmatter.pubDate.slice(8,10) + '/' + frontmatter.pubDate.slice(5,7) + '/' + frontmatter.pubDate.slice(0,4)}</p>
         <p>Written by: {frontmatter.author}</p>
         {frontmatter.image ? (<p style="text-align: center;"><img style="max-width: 100%;" src={frontmatter.image.url}/></p>) : (<span></span>)}
         <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
