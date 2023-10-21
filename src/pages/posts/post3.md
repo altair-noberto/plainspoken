@@ -4,7 +4,7 @@ title: 'Why "plainspoken"'
 pubDate: 19/10/2023
 description: 'Explaning the meaning of website'
 author: 'Altair Noberto'
-tags: ["plainkspoken", "second-tag"]
+tags: ["plainkspoken", "second-tag", "kkfmk"]
 ---
 
 Because i want to have simple, and direct communication on this blog.

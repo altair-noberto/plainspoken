@@ -1,10 +1,11 @@
 ---
-const {url, title, description, date} = Astro.props
+const {url, title, description, date, tags} = Astro.props
 ---
 <div class="postCard">
     <h3><a href={url}>{title}</a></h3>
-    <p style="font-size: 0.9rem">{description}</p>
-    <p style="font-size: 0.9rem">{date.slice(0,10)}</p>
+    <div style="font-size: 0.9rem" class="tags"><strong>Tags: </strong> {tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;">{tag}</a>)}</div>
+    <p>{description}</p>
+    <p>{date.slice(0,10)}</p>
 </div>
 
 <style>
@@ -14,5 +15,10 @@ const {url, title, description, date} = Astro.props
         gap: 10px;
         padding-bottom: 1em;
         border-top: 1px solid var(--main);
+    }
+    .tags{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 5px;
     }
 </style>
