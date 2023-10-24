@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogPost from '../components/BlogPost.astro'
+import Sidebar from '../components/Sidebar.astro'
+import PostList from '../components/PostList.astro'
 const posts = await Astro.glob('../pages/posts/*.md')
 ---
 
@@ -8,13 +9,21 @@ const posts = await Astro.glob('../pages/posts/*.md')
     <p>This is an blog page.</p>
     <br />
     <div class="blogPage">
-        <div class="postList">
-            {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} 
-            description={post.frontmatter.description} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} />)}
-        </div>
-        <div class="sidebar">
-            <h3>Tags:</h3>
-            <div class="Tags">{posts.map((post) => post.frontmatter.tags.map((tag) => <a style="text-transform: capitalize;" href={"/tags/" + tag}>{tag}</a>))}</div>
-        </div>
+        <PostList posts={posts}/>
+        <Sidebar posts={posts}/>
     </div>
 </BaseLayout>
+
+<style>
+    .blogPage{
+ display: flex;
+ gap: 20px;
+ width: 100%;
+}
+
+@media screen and (max-width: 610px){
+    .blogPage{
+    flex-direction: column;
+  }
+}
+</style>
