@@ -3,17 +3,18 @@ import './Styles/PostList.css'
 export default function Posts({posts}) {
 
   const [sort, setSort] = useState('a');
-
+  const [Posts, setPosts] = useState(posts);
   return (
     <>
     <p style="text-align: right;">
-    <select onChange={(e) => setSort(e.value)}>
+    <select onChange={(e) => {setSort(e.target.value); sort === 'a' ? setPosts(posts.sort((a, b) => {return new Date(a.frontmatter.pubDate) - new Date(b.frontmatter.pubDate)}))
+  : setPosts(posts.sort((a, b) => {return new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)}))}}>
         <option selected value="a">Sort by: Most recent</option>
         <option value="b">Sort by: Older</option>
     </select>
     </p>
     <div class="postList">
-        {posts.map((post) =>
+        {Posts.map((post) =>
          <div class="postCard"
          style={
             {display: 'flex', 

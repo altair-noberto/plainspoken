@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar.astro'
 import Posts from '../components/Posts.jsx'
 let Sort;
 const unfilteredposts = await Astro.glob('../pages/posts/*.md')
-let posts = unfilteredposts.sort((a, b) => {return new Date(a.frontmatter.pubDate) - new Date(b.frontmatter.pubDate)})
+const posts = unfilteredposts.sort((a, b) => {return new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)})
 ---
 
 <BaseLayout pageTitle="Blog">
@@ -19,7 +19,7 @@ let posts = unfilteredposts.sort((a, b) => {return new Date(a.frontmatter.pubDat
     <p>This is an blog page.</p>
     <br />
     <div class="blogPage">
-        <Posts posts={unfilteredposts}/>
+        <Posts client:load posts={posts}/>
         <Sidebar posts={posts}/>
     </div>
 </BaseLayout>
@@ -29,15 +29,6 @@ let posts = unfilteredposts.sort((a, b) => {return new Date(a.frontmatter.pubDat
  display: flex;
  gap: 20px;
  width: 100%;
-}
-select{
-    font-size: 1.3rem;
-    font-family: 'Times New Roman', serif;
-    background-color: var(--background);
-    color: var(--main);
-    margin-top: 10px;
-    border: none;
-    outline: none;
 }
 @media screen and (max-width: 610px){
     .blogPage{
