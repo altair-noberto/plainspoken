@@ -1,0 +1,19 @@
+---
+import {Icon} from 'astro-icon'
+const {pages} = Astro.props
+console.log(pages)
+let i;
+
+if(pages.currentPage === 1) i = ''; else i = pages.currentPage;
+
+---
+
+<div class="pages">
+{pages.url.prev && (
+    <div><a href={pages.url.prev}><Icon name="mdi:arrow-left" size='24'/></a></div>
+)}
+<div style="display: flex;"><a href={'/' + pages.url.current.split('/')[1]}>1</a></div>
+{pages.url.next && (
+    <div><a href={pages.url.next}><Icon name="mdi:arrow-right" size='24'/></a></div>
+)}
+</div>

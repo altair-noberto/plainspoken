@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Sidebar from '../../components/Sidebar.astro'
 import Posts from '../../components/Posts.jsx'
+import Pagination from '../../components/Pagination.astro'
 
 
 export async function getStaticPaths({paginate}){
@@ -13,7 +14,7 @@ export async function getStaticPaths({paginate}){
     })
 }
 const {page} = Astro.props;
-console.log(page)
+// console.log(page)
 ---
 
 <BaseLayout pageTitle="Blog">
@@ -30,6 +31,7 @@ console.log(page)
     <div class="blogPage">
         <Posts client:load posts={page.data}/>
         <Sidebar posts={page.data}/>
+        <Pagination pages={page}/>
     </div>
 </BaseLayout>
 
