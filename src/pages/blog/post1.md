@@ -7,7 +7,7 @@ author: 'Altair Noberto'
 image:
     url: ''
     alt: ''
-tags: ["astro", "blogging", "testing"]
+tags: ["astro", "blogging", "Ta"]
 ---
 
 Poggers. _This is an italic text_ **This is a bold text.**
