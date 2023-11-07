@@ -1,5 +1,4 @@
 ---
-layout: '../../../layouts/PostLayout.astro'
 title: 'Why "plainspoken"'
 pubDate: 2023-10-19 21:17:00
 description: 'Explaning the meaning of website.'

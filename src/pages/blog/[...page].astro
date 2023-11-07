@@ -3,11 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Sidebar from '../../components/Sidebar.astro'
 import Posts from '../../components/Posts.jsx'
 import Pagination from '../../components/Pagination.astro'
-
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths({paginate}){
-    const unfilteredposts = await Astro.glob("./posts/*.md")
-    const posts = unfilteredposts.sort((a, b) => {return new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)})
+    const unfilteredposts = await getCollection("posts")
+    const posts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate) - new Date(a.data.pubDate)})
 
     return paginate(posts, {
         pageSize: 4,
