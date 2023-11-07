@@ -1,0 +1,12 @@
+.postList{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  @media screen and (max-width:610px){
+      .postList{
+          width: auto;
+      }
+  }
