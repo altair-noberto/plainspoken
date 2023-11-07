@@ -1,18 +1,34 @@
 ---
 import {Icon} from 'astro-icon'
 const {pages} = Astro.props
-console.log(pages)
 let i;
+let j = 8
+let k = 2
+if(pages.currentPage === 1){
+    i = '';
+    k = 2
+}else {i = pages.lastPage; k = pages.currentPage}
 
-if(pages.currentPage === 1) i = ''; else i = pages.currentPage;
+if(j+(pages.currentPage-1) <= pages.lastPage) {j = j+(pages.currentPage-1)} else j = pages.lastPage;
 
+
+function pagebtn(i){
+    let pageBtn = [];
+    for(k; k <= j ; k++){
+        pageBtn.push(k)
+    }
+    return pageBtn;
+}
 ---
 
-<div class="pages">
+<div style="width: 100%; display: flex; align-itens: center; justify-content: center; gap: 10px;" class="pages">
 {pages.url.prev && (
     <div><a href={pages.url.prev}><Icon name="mdi:arrow-left" size='24'/></a></div>
 )}
-<div style="display: flex;"><a href={'/' + pages.url.current.split('/')[1]}>1</a></div>
+<div style="display: flex; gap: 10px;">
+    <a href={'/' + pages.url.current.split('/')[1]}>1</a>
+    {pagebtn(i).map((a) => <a href={"/blog/" + a}>{a}</a>)}
+</div>
 {pages.url.next && (
     <div><a href={pages.url.next}><Icon name="mdi:arrow-right" size='24'/></a></div>
 )}
