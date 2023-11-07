@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Sidebar from '../../components/Sidebar.astro'
+import Posts from '../../components/Posts.jsx'
+
+export async function getStaticPaths({paginate}){
+    const unfilteredposts = await Astro.glob('./*.md')
+    const posts = unfilteredposts.sort((a, b) => {return new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)})
+
+    return paginate(posts, {
+        pageSize: 2,
+    })
+}
+const {page} = Astro.props;
+---
+
+<BaseLayout pageTitle="Blog">
+    <script>
+    document.addEventListener('astro:after-swap', () => {
+        if(sessionStorage.getItem('sortBy') === 2){
+            {Sort = 2}
+        } else {Sort = 1};
+        console.log({Sort})
+    })
+    </script>
+    <p>This is an blog page.</p>
+    <br />
+    <div class="blogPage">
+        <Posts client:load posts={page.data}/>
+        <Sidebar posts={page.data}/>
+    </div>
+</BaseLayout>
+
+<style>
+    .blogPage{
+ display: flex;
+ gap: 20px;
+ width: 100%;
+}
+@media screen and (max-width: 610px){
+    .blogPage{
+    flex-direction: column;
+  }
+}
+</style>
