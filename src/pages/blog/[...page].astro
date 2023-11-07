@@ -3,8 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Sidebar from '../../components/Sidebar.astro'
 import Posts from '../../components/Posts.jsx'
 
+
 export async function getStaticPaths({paginate}){
-    const unfilteredposts = await Astro.glob("./*.md")
+    const unfilteredposts = await Astro.glob("./posts/*.md")
     const posts = unfilteredposts.sort((a, b) => {return new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)})
 
     return paginate(posts, {
@@ -12,6 +13,7 @@ export async function getStaticPaths({paginate}){
     })
 }
 const {page} = Astro.props;
+console.log(page)
 ---
 
 <BaseLayout pageTitle="Blog">

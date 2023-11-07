@@ -4,6 +4,7 @@ export default function Posts({posts}) {
 
   const [sort, setSort] = useState('a');
   const [Posts, setPosts] = useState(posts);
+
   return (
     <>
     <p style="text-align: right;">
@@ -29,7 +30,8 @@ export default function Posts({posts}) {
             flexWrap: 'wrap',
             gap: '8px',
             textAlign: 'left'
-            }}><strong>Tags: </strong> {post.frontmatter.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;">{tag}</a>)}</div>
+            }}>
+            <strong>Tags: </strong> {post.frontmatter.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;">{tag}</a>)}</div>
          <p>{post.frontmatter.description}</p>
          <p>{post.frontmatter.pubDate.slice(8,10) + '/' + post.frontmatter.pubDate.slice(5,7) + '/' + post.frontmatter.pubDate.slice(0,4)}</p>
         </div>
