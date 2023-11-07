@@ -2,14 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Sidebar from '../components/Sidebar.astro'
 import PostList from '../components/PostList.astro'
+let Sort;
 const unfilteredposts = await Astro.glob('../pages/posts/*.md')
 const posts = unfilteredposts.sort((a, b) => {return new Date(a.frontmatter.pubDate) - new Date(b.frontmatter.pubDate)})
 ---
 
 <BaseLayout pageTitle="Blog">
+    <script>
+    document.addEventListener('astro:after-swap', () => {
+        if(sessionStorage.getItem('sortBy') === 2){
+            {Sort = 2}
+        } else {Sort = 1};
+        console.log({Sort})
+    })
+    </script>
     <p>This is an blog page.</p>
     <p style="text-align: right;">
-        <select>
+        <select SortBy>
             <option selected value="a">Sort by: Most recent</option>
             <option value="b">Sort by: Older</option>
         </select>
