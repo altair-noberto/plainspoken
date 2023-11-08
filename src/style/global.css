@@ -14,7 +14,7 @@ body {
   --background: rgb(255, 255, 255);
   --highlight: rgb(253, 228, 0);
   background-color: var(--background);
-  /* font-family: var(--font-body); */
+  font-family: var(--font-body);
   font-size: 1.3rem;
   color: var(--main);
 }
@@ -39,7 +39,9 @@ mark{
 }
 
 code{
-  background-color: rgb(150, 150, 150);
+  font-family: var(--font-body);
+  font-style: italic;
+  background-color: rgba(146, 145, 145);
   color: var(--main);
 }
 
@@ -58,4 +60,11 @@ h1{
   border-bottom: 1px solid var(--main);
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
+}
+
+h2{
+  border-left: 4px solid var(--highlight);
+  padding-left: 0.3em;
+  padding-top: 0;
+  margin-top: 10px;
 }

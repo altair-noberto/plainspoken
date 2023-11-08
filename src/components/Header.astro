@@ -13,12 +13,22 @@ const {Title} = Astro.props
 		<ViewTransitions />
 	</head>
 	<script>
-		document.addEventListener('astro:after-swap', () => {
+		document.addEventListener('astro:page-load', () => {
 			sessionStorage.getItem('DarkLight') ? 
 			document.querySelector('body').classList.add(sessionStorage.getItem('DarkLight')) : 
 			sessionStorage.setItem('DarkLight', 'light')
-			sessionStorage.getItem('Font') === 'sans-serif' ?
-			document.querySelector('body').style.fontFamily = 'var(--font-body)' :
-			sessionStorage.setItem('Font', 'serif')
+			localStorage.getItem('Font') === 'serif' ?
+			document.querySelector('body').style.fontFamily = 'initial' :
+			localStorage.setItem('Font', 'sans-serif')
+		})
+		document.addEventListener('astro:after-swap', () => {
+			localStorage.getItem('DarkLight') ? 
+			document.querySelector('body').classList.add(localStorage.getItem('DarkLight')) : 
+			localStorage.setItem('DarkLight', 'light')
+			localStorage.getItem('Font') === 'serif' ?
+			document.querySelector('body').style.fontFamily = 'initial' :
+			localStorage.setItem('Font', 'sans-serif')
 		})
 	</script>
+	<script src="./Scripts/Font.js"></script>
+	<script src="./Scripts/DarkLight.js"></script>

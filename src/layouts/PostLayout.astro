@@ -26,4 +26,12 @@ function toDateString(Date){
         <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
         <slot />
     </div>
+
+    <style>
+        h1{
+            border-left: 6px solid var(--highlight);
+            padding-left: 0.3em;
+            border-bottom: none;
+        }
+    </style>
 </BaseLayout>

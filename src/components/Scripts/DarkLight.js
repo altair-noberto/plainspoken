@@ -4,11 +4,11 @@ document.addEventListener('astro:page-load', () => {
     const body = document.querySelector('body')
     if(body.classList.contains('dark')) {
       body.classList.remove('dark');
-      sessionStorage.setItem('DarkLight', 'light')
+      localStorage.setItem('DarkLight', 'light')
     }
     else {
       body.classList.add('dark');
-      sessionStorage.setItem('DarkLight', 'dark')
+      localStorage.setItem('DarkLight', 'dark')
     }
   }
 })
