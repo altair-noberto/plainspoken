@@ -7,11 +7,16 @@
 <nav>
 <div>
 <a onclick="
+const navbtn = document.querySelector('[NavMobile]');
+
 const navbar = document.querySelector('.navButtons');
-if(navbar.classList.contains('active'){
-  navbar.classList.remove('active')
-} else navbar.classList.add('active');
-"><Icon class="navMenu" width="27" height="27" name="mdi:menu"/></a>
+if(navbar.classList.contains('active')){
+  navbtn.setAttribute('name', 'mdi:close'); 
+  navbar.classList.remove('active');
+} else {
+  navbar.classList.add('active')
+};
+"><Icon NavMobile class="navMenu" width="27" height="27" name="mdi:menu"/></a>
 <div class="navButtons" style="display: flex; gap: 15px;">
 <a class={selected === "Home" ? "selected" : ""} href="/"><li>Home</li></a>
 <a class={selected === "About" ? "selected" : ""} href="/about"><li>About</li></a>
@@ -36,18 +41,18 @@ function nav(){
     gap: 1em;
     padding: 1em;
   }
-  nav > div > a{
+  nav > div > div > a{
     text-decoration: none;
     color: rgb(150,150,150);
     font-weight: 500;
     transition: 0.4s;
   }
-  nav > div > a:hover{
+  nav > div > div > a:hover{
     color: var(--main);
     opacity: 1;
   }
 
-  nav > div > a.selected{
+  nav > div > div > a.selected{
     color: var(--main);
     padding-bottom: 0.2em;
     text-decoration: underline;
@@ -68,8 +73,9 @@ function nav(){
       top: 50px;
       left: -100%;
       padding: 1em 4em;
-      height: 100vh;
+      height: 100%;
       background-color: var(--background);
+      transition: 0.3s;
     }
     .navButtons.active{
       left: 0;
