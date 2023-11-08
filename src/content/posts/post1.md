@@ -4,7 +4,7 @@ pubDate: 2023-10-19 17:12:00
 description: 'This is the first post.'
 author: 'Altair Noberto'
 image:
-    url: ''
+    url: 'https://www.petz.com.br/blog/wp-content/uploads/2020/08/cat-cafe-pet.jpg'
     alt: ''
 tags: ["astro", "blogging", "Ta"]
 ---

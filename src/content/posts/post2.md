@@ -6,7 +6,7 @@ author: 'Altair Noberto'
 image:
     url: ''
     alt: ''
-tags: ["second", "trollface", "ta"]
+tags: ["second", "trollface", "Ta"]
 ---
 
 this is literaty a copy of the first post, but i've changed everything. 
