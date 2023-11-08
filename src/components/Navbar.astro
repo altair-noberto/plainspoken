@@ -5,33 +5,74 @@
 ---
 
 <nav>
-<a class={selected == "Home" ? "selected" : ""} href="/"><li>Home</li></a>
-<a class={selected == "About" ? "selected" : ""} href="/about"><li>About</li></a>
-<a class={selected == "Blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
+<div>
+<a onclick="
+const navbar = document.querySelector('.navButtons');
+if(navbar.classList.contains('active'){
+  navbar.classList.remove('active')
+} else navbar.classList.add('active');
+"><Icon class="navMenu" width="27" height="27" name="mdi:menu"/></a>
+<div class="navButtons" style="display: flex; gap: 15px;">
+<a class={selected === "Home" ? "selected" : ""} href="/"><li>Home</li></a>
+<a class={selected === "About" ? "selected" : ""} href="/about"><li>About</li></a>
+<a class={selected === "Blog" ? "selected" : ""} href="/blog"><li>Blog</li></a>
+</div>
+</div>
+<div style="display: flex; gap: 10px; align-itens: flex-end; width: 100%;">
 <Options />
+</div>
 </nav>
+<script>
+function nav(){
+  
+}
 
+</script>
 <style>
   nav{
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
     gap: 1em;
-    padding: 1em
+    padding: 1em;
   }
-  nav > a{
+  nav > div > a{
     text-decoration: none;
     color: rgb(150,150,150);
     font-weight: 500;
     transition: 0.4s;
   }
-  nav > a:hover{
+  nav > div > a:hover{
     color: var(--main);
     opacity: 1;
   }
 
-  nav > a.selected{
+  nav > div > a.selected{
     color: var(--main);
     padding-bottom: 0.2em;
-    border-bottom: 1px solid var(--highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+  }
+  .navMenu{
+    display: none;
+  }
+  @media screen and (max-width: 600px){
+    .navMenu{
+      display: initial;
+      position: block;
+      z-index: 1;
+    }
+    .navButtons{
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      left: -100%;
+      padding: 1em 4em;
+      height: 100vh;
+      background-color: var(--background);
+    }
+    .navButtons.active{
+      left: 0;
+    }
   }
 </style>
