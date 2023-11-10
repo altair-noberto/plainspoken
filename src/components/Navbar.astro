@@ -1,5 +1,6 @@
 ---
   import {Icon} from 'astro-icon'
+  import Search from './Search.jsx';
   import Options from './Options.astro'
   const {selected} = Astro.props;
 ---
@@ -19,8 +20,9 @@ if(navbar.classList.contains('active')){
 "><Icon NavMobile class="navMenu" width="27" height="27" name="mdi:menu"/></a>
 <div class="navButtons" style="display: flex; gap: 15px;">
 <a class={selected === "Home" ? "selected" : ""} href="/" data-astro-prefetch><li>Home</li></a>
-<a class={selected === "About" ? "selected" : ""} href="/search/plainspoken"><li>About</li></a>
+<a class={selected === "About" ? "selected" : ""} href="/search/meaning"><li>About</li></a>
 <a class={selected === "Blog" ? "selected" : ""} href="/blog" data-astro-prefetch><li>Blog</li></a>
+<Search />
 </div>
 </div>
 <div style="display: flex; gap: 10px; align-itens: flex-end; width: 100%;">

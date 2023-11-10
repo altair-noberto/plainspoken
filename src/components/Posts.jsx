@@ -2,7 +2,6 @@ import { useState } from 'preact/hooks';
 import './Styles/PostList.css'
 export default function Posts({posts}) {
 
-  const [sort, setSort] = useState('a');
   const [Posts, setPosts] = useState(posts);
 
   function toDateString(Date){

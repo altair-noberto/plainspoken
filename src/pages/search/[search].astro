@@ -5,22 +5,25 @@ import Posts from '../../components/Posts.jsx'
 
 export async function getStaticPaths(){
     const allPosts = await getCollection("posts");
-    const titles = [...new Set(allPosts.map((post) => post.data.title))]
-
-    return titles.map((title) => {
-        const filteredPosts = allPosts.filter((post) => post.data.title.includes(title));
+    const titles = [...new Set(allPosts.map((post) => post.data.title).flat())]
+    const desc = [...new Set(allPosts.map((post) => post.data.description).flat())]
+    const titlewords = [...new Set(titles.map((title) => title.replace(/[".']/gi, '').toLowerCase().split(' ')))]
+    const descwords = [...new Set(desc.map((description) => description.replace(/[".']/gi, '').toLowerCase().split(' ')))]
+    const flatWords = titlewords.concat(descwords).flat();
+    return flatWords.map((search) => {
+        const filteredPosts = allPosts.filter((post) => post.data.title.toLowerCase().includes(search.toLowerCase()) || post.data.description.toLowerCase().includes(search.toLowerCase()));
         return {
-            params: {title},
+            params: {search},
             props: {posts: filteredPosts},
         }
     })
 }
 
-const {title} = Astro.params;
+const {search} = Astro.params;
 const {posts} = Astro.props;
 ---
 
-<BaseLayout pageTitle={title}>
-    <h1 style="border-bottom: none; padding-bottom: 0.1em;">Posts tagged with '{title}'</h1>
+<BaseLayout pageTitle={search}>
+    <h1 style="border-bottom: none; padding-bottom: 0.1em;">Posts with '{search}'</h1>
     <Posts posts={posts} />
 </BaseLayout>

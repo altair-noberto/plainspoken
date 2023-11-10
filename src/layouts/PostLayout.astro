@@ -20,7 +20,7 @@ function toDateString(Date){
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
         <p>Published on: {toDateString(frontmatter.pubDate)}</p>
-        <p>Written by: {frontmatter.author}</p>
+        <p>Written bey: {frontmatter.author}</p>
         <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         {frontmatter.image.url ? <p style="text-align: center;"><img style="max-width: 100%;" src={frontmatter.image.url}/></p> : <span></span>}
         <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
