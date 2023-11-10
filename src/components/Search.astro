@@ -1,0 +1,11 @@
+---
+import {Icon} from 'astro-icon'
+import './Styles/Search.css'
+---
+
+<div style="display: flex; gap: 10px">
+    <input 
+    style="padding: 0.5em 1em; border-radius: 10px;"
+    type="text" name="search" id="search" />
+    <a onclick="window.location.href = '/search/' + document.querySelector('#search').value" style="cursor: pointer;">Search</a>
+</div>

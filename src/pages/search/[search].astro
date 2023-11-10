@@ -5,11 +5,14 @@ import Posts from '../../components/Posts.jsx'
 
 export async function getStaticPaths(){
     const allPosts = await getCollection("posts");
+    
     const titles = [...new Set(allPosts.map((post) => post.data.title).flat())]
     const desc = [...new Set(allPosts.map((post) => post.data.description).flat())]
+    
     const titlewords = [...new Set(titles.map((title) => title.replace(/[".']/gi, '').toLowerCase().split(' ')))]
     const descwords = [...new Set(desc.map((description) => description.replace(/[".']/gi, '').toLowerCase().split(' ')))]
     const flatWords = titlewords.concat(descwords).flat();
+    
     return flatWords.map((search) => {
         const filteredPosts = allPosts.filter((post) => post.data.title.toLowerCase().includes(search.toLowerCase()) || post.data.description.toLowerCase().includes(search.toLowerCase()));
         return {
@@ -21,6 +24,7 @@ export async function getStaticPaths(){
 
 const {search} = Astro.params;
 const {posts} = Astro.props;
+console.log(posts)
 ---
 
 <BaseLayout pageTitle={search}>
