@@ -14,7 +14,7 @@ export async function getStaticPaths(){
     const flatWords = titlewords.concat(descwords).flat();
     
     return flatWords.map((search) => {
-        const filteredPosts = allPosts.filter((post) => post.data.title.toLowerCase().includes(search.toLowerCase()) || post.data.description.toLowerCase().includes(search.toLowerCase()));
+        let filteredPosts = allPosts.filter((post) => post.data.title.toLowerCase().includes(search.toLowerCase()) || post.data.description.toLowerCase().includes(search.toLowerCase()));
         return {
             params: {search},
             props: {posts: filteredPosts},
@@ -24,7 +24,7 @@ export async function getStaticPaths(){
 
 const {search} = Astro.params;
 const {posts} = Astro.props;
-console.log(posts)
+// console.log(posts)
 ---
 
 <BaseLayout pageTitle={search}>
