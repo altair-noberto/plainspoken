@@ -2,8 +2,6 @@ import { useState } from 'preact/hooks';
 import './Styles/PostList.css'
 export default function Posts({posts}) {
 
-  const [Posts, setPosts] = useState(posts);
-
   function toDateString(Date){
     const months = ["01", "02", "03", "04", "05", "06", 
     "07", "08", "09", "10", "11", "12"]
@@ -18,7 +16,7 @@ export default function Posts({posts}) {
   return (
     <>
     <div class="postList">
-        {Posts.map((post) =>
+        {posts.map((post) =>
          <div class="postCard"
          style={
             {display: 'flex', 

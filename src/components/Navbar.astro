@@ -22,7 +22,7 @@ if(navbar.classList.contains('active')){
 <a class={selected === "Home" ? "selected" : ""} href="/" data-astro-prefetch><li>Home</li></a>
 <a class={selected === "About" ? "selected" : ""} href="/search/meaning"><li>About</li></a>
 <a class={selected === "Blog" ? "selected" : ""} href="/blog" data-astro-prefetch><li>Blog</li></a>
-<Search />
+<Search client:load />
 </div>
 </div>
 <div style="display: flex; gap: 10px; align-itens: flex-end; width: 100%;">
