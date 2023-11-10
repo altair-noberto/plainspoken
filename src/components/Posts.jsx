@@ -27,7 +27,7 @@ export default function Posts({posts}) {
             gap: '10px',
             paddingBottom: '1em',
             borderTop: '1px solid var(--main)'}}>
-         <h3><a href={`/blog/posts/${post.slug}`}>{post.data.title}</a></h3>
+         <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
             {fontSize: '0.9rem',
             display: 'flex',
@@ -35,7 +35,7 @@ export default function Posts({posts}) {
             gap: '8px',
             textAlign: 'left'
             }}>
-            <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;">{tag}</a>)}</div>
+            <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
          <p>{post.data.description}</p>
          <p>{toDateString(post.data.pubDate)}</p>
         </div>

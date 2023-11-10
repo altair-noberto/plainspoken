@@ -3,7 +3,7 @@
 ---
 <div class="sidebar">
     <h3>Tags:</h3>
-    <div class="Tags">{posts.map((post) => post.data.tags.map((tag) => <a style="text-transform: capitalize;" href={"/tags/" + tag}>{tag}</a>))}</div>
+    <div class="Tags">{posts.map((post) => post.data.tags.map((tag) => <a style="text-transform: capitalize;" href={"/tags/" + tag} data-astro-prefetch>{tag}</a>))}</div>
 </div>
 
 <style>

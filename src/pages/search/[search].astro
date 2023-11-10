@@ -5,21 +5,22 @@ import Posts from '../../components/Posts.jsx'
 
 export async function getStaticPaths(){
     const allPosts = await getCollection("posts");
-    const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+    const titles = [...new Set(allPosts.map((post) => post.data.title))]
 
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
+    return titles.map((title) => {
+        const filteredPosts = allPosts.filter((post) => post.data.title.includes(title));
         return {
-            params: {tag},
+            params: {title},
             props: {posts: filteredPosts},
         }
     })
 }
 
-const {tag} = Astro.params;
+const {title} = Astro.params;
 const {posts} = Astro.props;
 ---
-<BaseLayout pageTitle={tag}>
-    <h1 style="border-bottom: none; padding-bottom: 0.1em;">Posts tagged with '{tag}'</h1>
+
+<BaseLayout pageTitle={title}>
+    <h1 style="border-bottom: none; padding-bottom: 0.1em;">Posts tagged with '{title}'</h1>
     <Posts posts={posts} />
 </BaseLayout>
