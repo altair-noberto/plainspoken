@@ -18,13 +18,6 @@ export default function Posts({posts}) {
 
   return (
     <>
-    <p style="text-align: right; grid-column: 1 / 3;">
-    <select onChange={(e) => {setSort(e.target.value); sort === 'a' ? setPosts(posts.sort((a, b) => {return new Date(a.data.pubDate) - new Date(b.data.pubDate)}))
-  : setPosts(posts.sort((a, b) => {return new Date(b.data.pubDate) - new Date(a.data.pubDate)}))}}>
-        <option selected value="a">Sort by: Most recent</option>
-        <option value="b">Sort by: Older</option>
-    </select>
-    </p>
     <div class="postList">
         {Posts.map((post) =>
          <div class="postCard"
