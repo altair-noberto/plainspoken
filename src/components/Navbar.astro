@@ -25,16 +25,10 @@ if(navbar.classList.contains('active')){
 <Search />
 </div>
 </div>
-<div style="display: flex; gap: 10px; align-itens: flex-end; width: 100%;">
+<div style="justify-self: end; display: flex; gap: 10px;">
 <Options />
 </div>
 </nav>
-<script>
-function nav(){
-  
-}
-
-</script>
 <style>
   [astro-icon]{
     color: var(--main);
@@ -77,8 +71,8 @@ function nav(){
       flex-direction: column;
       position: absolute;
       top: 50px;
-      left: -100%;
-      padding: 1em 4em;
+      left: -500%;
+      padding: 1em 2em;
       height: 100%;
       background-color: var(--background);
       transition: 0.3s;

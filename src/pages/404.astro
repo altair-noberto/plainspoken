@@ -7,12 +7,12 @@ console.log(page)
 
 <BaseLayout pageTitle="Not found">
     {page.includes('/search') && (
-        <p>No results with '<i>{page.split('/')[2]}</i>' has found.</p>
+        <p>No results with "<i>{page.split('/')[2]}</i>" has found.</p>
         <hr />
         <h3><a href="/">Return to home</a></h3>
     )}
     {page.includes('/tags') && (
-    <p>No posts tagged with '<i>{page.split('/')[2]}</i>' has found.</p>
+    <p>No posts tagged with "<i>{page.split('/')[2]}</i>" has found.</p>
     <hr />
     <h3><a href="/">Return to home</a></h3>
 )}
