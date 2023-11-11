@@ -7,7 +7,7 @@ const unfilteredposts = await getCollection("posts")
 const sortedposts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate) - new Date(a.data.pubDate)})
 let posts = [];
 for(let i = 0; i < 5; i++){
-  if(sortedposts[i] !== undefined || sortedposts[i] !== undefined) posts.push(sortedposts[i])
+  if(sortedposts[i] === undefined || sortedposts[i] === undefined) break; else posts.push(sortedposts[i])
 }
 ---
 
