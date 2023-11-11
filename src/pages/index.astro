@@ -1,10 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+import Posts from '../components/Posts.jsx'
+
+const unfilteredposts = await getCollection("posts")
+const sortedposts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate) - new Date(a.data.pubDate)})
+let posts = [];
+for(let i = 0; i < 5; i++){
+  if(sortedposts[i] !== undefined || sortedposts[i] !== undefined) posts.push(sortedposts[i])
+}
 ---
 
 <BaseLayout pageTitle="Home">
     <h1 class="mainTitle"><span>Plainspoken</span></h1>
-    <p>This is an homepage.</p>
+    <h2>Latest posts: </h2>
+    <br />
+    <Posts posts={posts}/>
 </BaseLayout>
 
 <style>
