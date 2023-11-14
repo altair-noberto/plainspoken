@@ -7,6 +7,7 @@ image:
     url: ''
     alt: ''
 tags: ["second", "trollface", "Ta"]
+portuguese: '/blog/posts/pt-br/post2'
 ---
 
 this is literaty a copy of the first post, but i've changed everything. 

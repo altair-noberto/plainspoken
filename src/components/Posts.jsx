@@ -12,11 +12,11 @@ export default function Posts({posts}) {
 
     return `${day}/${mouth}/${year}`;
   }
-
+  const Posts = posts.filter((post) => post.data.portuguese !== '')
   return (
     <>
     <div class="postList">
-        {posts.map((post) =>
+        {Posts.map((post) =>
          <div class="postCard"
          style={
             {display: 'flex', 

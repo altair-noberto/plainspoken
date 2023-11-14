@@ -7,6 +7,7 @@ image:
     url: ''
     alt: ''
 tags: ["plainspoken", "second-tag", "maybe"]
+portuguese: '/blog/posts/pt-br/post3'
 ---
 
 ## Texto grande, texto mucho grande
