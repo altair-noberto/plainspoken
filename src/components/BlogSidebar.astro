@@ -1,0 +1,24 @@
+---
+interface Props {
+    headings: Array<Object>;
+}
+
+const {headings} = Astro.props
+console.log(headings)
+---
+<div></div>
+<!-- <aside>
+    <nav>
+        <ul>
+            {
+                headings.map((heading: any) => (
+                    <li>
+                        {[...Array(heading.depth -1).map((_, _i) => (
+                            <span></span>
+                        ))]}
+                        <a href={`#${heading.slug}`}>{heading.text}</a>    
+                    </li>
+                ))
+            }
+        </ul>
+    </nav> -->
