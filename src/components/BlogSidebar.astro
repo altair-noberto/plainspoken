@@ -4,30 +4,26 @@ interface Props {
 }
 
 const {headings} = Astro.props
-let i = 0;
-const filteredHeadings = headings.filter((heading: any) => heading.depth <= 2)
-const test = filteredHeadings.indexOf(headings[3])
-console.log(test)
 ---
 <aside>
     <p class="navText">On this page:</p>
     <nav>
         <ul>
             {
-                filteredHeadings.map((heading: any) => (
+                headings.map((heading: any) => (
                     <li>
-                        <a href={`#${heading.slug}`}>• {heading.text}</a>
-                        {headings.map((heading) => filteredHeadings.indexOf(heading) < 0 ? <p>{heading.text}</p> : ''
-                            )}   
+                        <a style={heading.depth > 2 ? "margin-left: " + heading.depth * 8 + "px;" : "margin-left: 0;"} href={`#${heading.slug}`}>{heading.depth <= 2 ? '• ' : ''}{heading.text}</a>    
                     </li>
-                    
                 ))
             }
         </ul>
     </nav>
     <style>
         aside{
-            width: 15%;
+            /* width: 20%; */
+            padding: 1em;
+            margin-left: 1em;
+            border: 1px solid var(--highlight);
         }
         aside > nav > ul{
             list-style:none;
@@ -40,21 +36,13 @@ console.log(test)
         .navText{
             font-weight: 600;
         }
-        @media screen and (max-width: 830px){
+        @media screen and (max-width: 625px){
             aside{
-                width: 25%;
-            }
-        }
-        @media screen and (max-width: 521px){
-            aside{
-                width: 100%;
+                width: 80%;
+                margin: 0 1em;
             }
             aside > nav {
                 width: 100%;
-            }
-            aside > nav > ul{
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
             }
         }
     </style>
