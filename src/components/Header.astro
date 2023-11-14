@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import '../style/global.css'
 const {Title} = Astro.props
+import '@fontsource/libre-bodoni';
 ---
 
 <html lang="en">
@@ -14,11 +15,11 @@ const {Title} = Astro.props
 	</head>
 	<script>
 		document.addEventListener('astro:page-load', () => {
-			sessionStorage.getItem('DarkLight') ? 
-			document.querySelector('body').classList.add(sessionStorage.getItem('DarkLight')) : 
+			localStorage.getItem('DarkLight') ? 
+			document.body.classList.add(localStorage.getItem('DarkLight')) : 
 			sessionStorage.setItem('DarkLight', 'light')
 			localStorage.getItem('Font') === 'serif' ?
-			document.querySelector('body').style.fontFamily = 'initial' :
+			document.body.style.fontFamily = '\'Libre Bodoni\', serif' :
 			localStorage.setItem('Font', 'sans-serif')
 		})
 		document.addEventListener('astro:after-swap', () => {

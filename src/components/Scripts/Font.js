@@ -10,6 +10,6 @@ function Font(){
   }
   else {
     localStorage.setItem('Font', 'serif');
-    body.style.fontFamily = 'initial';
+    body.style.fontFamily = '\'Libre Bodoni\', serif';
   }
   }

@@ -1,7 +1,7 @@
 document.addEventListener('astro:page-load', () => {
   document.querySelector('[DarkLight]').addEventListener('click', DarkLight)
   function DarkLight(){
-    const body = document.querySelector('body')
+    const body = document.body
     if(body.classList.contains('dark')) {
       body.classList.remove('dark');
       localStorage.setItem('DarkLight', 'light')
