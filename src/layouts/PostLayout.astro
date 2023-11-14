@@ -1,9 +1,10 @@
 ---
-import type { MarkdownLayoutProps } from 'astro'
 import BaseLayout from './BaseLayout.astro'
 import BlogSidebar from '../components/BlogSidebar.astro'
+
 const {frontmatter} = Astro.props
 const {headings} = Astro.props
+
 const title = `Blog | ${frontmatter.title}`
 function toDateString(Date: Date){
     const months = ["01", "02", "03", "04", "05", "06", 
@@ -16,11 +17,12 @@ function toDateString(Date: Date){
     return `${day}/${mouth}/${year}`;
   }
 
-console.log(Astro.props)
+console.log(headings)
 ---
 
 <BaseLayout pageTitle={title}>
-    <BlogSidebar headings={headings}/>
+    <div class="mainPostDiv">
+        <BlogSidebar headings={headings} />
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
         <p>Published on: {toDateString(frontmatter.pubDate)}</p>
@@ -30,12 +32,20 @@ console.log(Astro.props)
         <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
         <slot />
     </div>
-
+    </div>
     <style>
         h1{
             border-left: 6px solid var(--highlight);
             padding-left: 0.3em;
             border-bottom: none;
+        }
+        .mainPostDiv{
+            display: flex;
+        }
+        @media screen and (max-width: 521px){
+            .mainPostDiv{
+                flex-direction: column;
+            }
         }
     </style>
 </BaseLayout>

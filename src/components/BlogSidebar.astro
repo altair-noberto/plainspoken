@@ -4,21 +4,57 @@ interface Props {
 }
 
 const {headings} = Astro.props
-console.log(headings)
+let i = 0;
+const filteredHeadings = headings.filter((heading: any) => heading.depth <= 2)
+const test = filteredHeadings.indexOf(headings[3])
+console.log(test)
 ---
-<div></div>
-<!-- <aside>
+<aside>
+    <p class="navText">On this page:</p>
     <nav>
         <ul>
             {
-                headings.map((heading: any) => (
+                filteredHeadings.map((heading: any) => (
                     <li>
-                        {[...Array(heading.depth -1).map((_, _i) => (
-                            <span></span>
-                        ))]}
-                        <a href={`#${heading.slug}`}>{heading.text}</a>    
+                        <a href={`#${heading.slug}`}>• {heading.text}</a>
+                        {headings.map((heading) => filteredHeadings.indexOf(heading) < 0 ? <p>{heading.text}</p> : ''
+                            )}   
                     </li>
+                    
                 ))
             }
         </ul>
-    </nav> -->
+    </nav>
+    <style>
+        aside{
+            width: 15%;
+        }
+        aside > nav > ul{
+            list-style:none;
+        }
+        aside > nav> ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .navText{
+            font-weight: 600;
+        }
+        @media screen and (max-width: 830px){
+            aside{
+                width: 25%;
+            }
+        }
+        @media screen and (max-width: 521px){
+            aside{
+                width: 100%;
+            }
+            aside > nav {
+                width: 100%;
+            }
+            aside > nav > ul{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
