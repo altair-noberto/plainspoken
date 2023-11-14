@@ -10,25 +10,25 @@ const {pageTitle} = Astro.props
 		<div class="mainDiv">
 			<slot />
 		</div>
+		<script>
+			document.addEventListener('astro:page-load', () => {
+				localStorage.getItem('DarkLight') ? 
+				document.body.classList.add(localStorage.getItem('DarkLight')) : 
+				sessionStorage.setItem('DarkLight', 'light')
+				localStorage.getItem('Font') === 'serif' ?
+				document.body.style.fontFamily = '\'Libre Bodoni\', serif' :
+				localStorage.setItem('Font', 'sans-serif')
+			})
+			document.addEventListener('astro:after-swap', () => {
+				localStorage.getItem('DarkLight') ? 
+				document.querySelector('body').classList.add(localStorage.getItem('DarkLight')) : 
+				localStorage.setItem('DarkLight', 'light')
+				localStorage.getItem('Font') === 'serif' ?
+				document.querySelector('body').style.fontFamily = 'initial' :
+				localStorage.setItem('Font', 'sans-serif')
+			})
+		</script>
+		<script src="../components/Scripts/Font.js"></script>
+		<script src="../components/Scripts/DarkLight.js"></script>
 	</body>
-	<script>
-		document.addEventListener('astro:page-load', () => {
-			localStorage.getItem('DarkLight') ? 
-			document.body.classList.add(localStorage.getItem('DarkLight')) : 
-			sessionStorage.setItem('DarkLight', 'light')
-			localStorage.getItem('Font') === 'serif' ?
-			document.body.style.fontFamily = '\'Libre Bodoni\', serif' :
-			localStorage.setItem('Font', 'sans-serif')
-		})
-		document.addEventListener('astro:after-swap', () => {
-			localStorage.getItem('DarkLight') ? 
-			document.querySelector('body').classList.add(localStorage.getItem('DarkLight')) : 
-			localStorage.setItem('DarkLight', 'light')
-			localStorage.getItem('Font') === 'serif' ?
-			document.querySelector('body').style.fontFamily = 'initial' :
-			localStorage.setItem('Font', 'sans-serif')
-		})
-	</script>
-	<script src="../components/Scripts/Font.js"></script>
-	<script src="../components/Scripts/DarkLight.js"></script>
 </html>
