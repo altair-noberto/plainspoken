@@ -7,7 +7,7 @@ image:
     url: 'https://www.petz.com.br/blog/wp-content/uploads/2020/08/cat-cafe-pet.jpg'
     alt: ''
 tags: ["astro", "blogging", "Ta"]
-portuguese: '/blog/posts/pt-br/post1'
+portuguese: '/blog/posts/pt-br/'
 ---
 
 Poggers. _This is an italic text_ **This is a bold text.**
