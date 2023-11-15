@@ -19,6 +19,7 @@ export default function Posts({posts}) {
   const ptbrPosts = posts.filter((post) => post.data.portuguese === '')
   return (
     <>
+    <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
     <a style={{cursor: 'pointer'}} onClick={() => {if(language === '') {setLanguage('pt-br'); setMessage('Change language')} else {setLanguage(''); setMessage('Alterar Linguagem')}}}>{message}</a>
     <div class="postList">
       {language !== 'pt-br' ? Posts.map((post) => 
@@ -59,6 +60,7 @@ export default function Posts({posts}) {
          <p>{post.data.description}</p>
          <p>{toDateString(post.data.pubDate)}</p>
         </div>)}
+    </div>
     </div>
     </>
   );
