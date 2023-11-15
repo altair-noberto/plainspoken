@@ -1,5 +1,5 @@
 ---
-title: 'Por que "plainspoken"?'
+title: 'Porque "plainspoken"'
 pubDate: 2023-10-19 21:17:00
 description: 'Explicando o significado desse site.'
 author: 'Altair Noberto'
