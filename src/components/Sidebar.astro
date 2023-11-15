@@ -1,7 +1,7 @@
 ---
     const {posts} = Astro.props
     const Posts = posts.filter((post) => post.data.portuguese !== '')
-    let tags = []
+    const tags = []
     Posts.map((post) => post.data.tags.map((tag) => tags.push(tag)))
     const setTags = tags.filter((t,i) => tags.indexOf(t) === i);
 ---
