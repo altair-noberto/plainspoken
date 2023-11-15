@@ -6,9 +6,8 @@ import Pagination from '../../components/Pagination.astro'
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths({paginate}){
-    let posts;
     const unfilteredposts = await getCollection("posts")
-    posts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate) - new Date(a.data.pubDate)})
+    const posts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate) - new Date(a.data.pubDate)})
     return paginate(posts, {
         pageSize: 7,
     })

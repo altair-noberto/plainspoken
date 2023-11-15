@@ -1,7 +1,7 @@
 ---
-title: 'My First Blog Post'
+title: 'Meu primeiro post'
 pubDate: 2023-10-19 17:12:00
-description: 'This is the first post.'
+description: 'Esse é o primeiro post.'
 author: 'Altair Noberto'
 image:
     url: 'https://www.petz.com.br/blog/wp-content/uploads/2020/08/cat-cafe-pet.jpg'
@@ -10,15 +10,15 @@ tags: ["astro", "blogging", "Ta"]
 portuguese: ''
 ---
 
-Poggers. _This is an italic text_ **This is a bold text.**
+Poggers. _Isso aqui é um texto em itálico_ **Isso é um texto em negrito.**
 
-## What I've accomplished
+## O que eu fiz
 
-1. **Pooping in my pants**: First, i did some shit.
+1. **Cocô nas calças**: Primeiramente, eu me caguei.
 
-2. **Two (too)**: `.this is a mark.` `or a code tag.`
+2. **Dois (insira uma piada em inglês aqui)**: `.isso é uma tag de marcação.` `ou uma tag 'code'.`
 
-3. **Google link**: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">this is a google anchor. click for google search.</a>
+3. **Site do google**: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">isso é uma âncora para o site do google. clique para pesquisar no google.</a>
 
 ### H3
 #### H4

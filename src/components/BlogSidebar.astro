@@ -4,9 +4,10 @@ interface Props {
 }
 
 const {headings} = Astro.props
+const {language} = Astro.props
 ---
 <aside>
-    <p class="navText">On this page:</p>
+    <p class="navText">{language === '' ? 'Nessa página:' : 'On this page:'}</p>
     <nav>
         <ul>
             {
