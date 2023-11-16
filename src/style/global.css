@@ -30,7 +30,7 @@ body.dark{
 }
 
 .mainDiv, .postDiv, ol, ul{
-  padding: 1em;
+  padding: 1em 0 0 1em;
 }
 
 .mainDiv, .postDiv > p, h2, h3, h4, h5{
