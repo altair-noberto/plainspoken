@@ -25,11 +25,11 @@ function toDateString(Date: Date){
         <BlogSidebar language={frontmatter.portuguese} headings={headings} />
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
+        {frontmatter.portuguese !== '' ? <a href={frontmatter.portuguese + entry.id.split('.')[0]}>Versão em português</a> : <a href={'/blog/posts/' + englishVer}>English version</a>}
         <p>{frontmatter.portuguese === '' ? 'Publicado em: ' : 'Published on: '} {toDateString(frontmatter.pubDate)}</p>
         <p>{frontmatter.portuguese === '' ? 'Escrito por: ' : 'Written by: '}{frontmatter.author}</p>
         <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         <br />
-        {frontmatter.portuguese !== '' ? <a href={frontmatter.portuguese + entry.id.split('.')[0]}>Versão em português</a> : <a href={'/blog/posts/' + englishVer}>English version</a>}
         {frontmatter.image.url ? <p style="text-align: center;"><img style="max-width: 100%;" src={frontmatter.image.url}/></p> : <span></span>}
         <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
         <slot />
