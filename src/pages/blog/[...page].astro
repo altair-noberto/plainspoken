@@ -16,7 +16,7 @@ const {page} = Astro.props;
 ---
 
 <BaseLayout pageTitle="Blog">
-    <p>This is an blog page.</p>
+    <h1 style="border-bottom: 0; margin-bottom: 0; padding: 0;">Blog</h1>
     <br />
     <div class="blogPage">
         <Posts client:load posts={page.data}/>
