@@ -9,11 +9,9 @@
 <nav>
 <div>
 <a onclick="
-const navbtn = document.querySelector('[NavMobile]');
 
 const navbar = document.querySelector('.navButtons');
 if(navbar.classList.contains('active')){
-  navbtn.setAttribute('name', 'mdi:close'); 
   navbar.classList.remove('active');
 } else {
   navbar.classList.add('active')
