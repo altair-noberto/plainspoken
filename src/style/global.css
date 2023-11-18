@@ -14,7 +14,7 @@
 body {
   --main: rgb(0, 0, 0);
   --background: rgb(243, 243, 221);
-  --highlight: rgb(253, 228, 0);
+  --highlight: rgb(253, 218, 0);
   --opacHigh: rgba(253, 228, 0, 0.5);
   background-color: var(--background);
   font-family: 'Libre Bodoni', serif;

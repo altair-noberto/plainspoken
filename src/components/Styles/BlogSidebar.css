@@ -1,0 +1,29 @@
+aside{
+    padding: 1em;
+    border: 1px solid var(--main);
+    max-width: 20%;
+    transition: 0.2s ease;
+}
+aside > nav > ul{
+    list-style:none;
+}
+aside > nav> ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.navText{
+    font-weight: 600;
+}
+@media screen and (max-width: 702px){
+    #showHide{
+        display: none;
+    }
+    aside{
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    aside > nav {
+        width: 100%;
+    }
+}

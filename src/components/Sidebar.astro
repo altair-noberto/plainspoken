@@ -1,49 +1,14 @@
 ---
-    const {posts} = Astro.props
-    const Posts = posts.filter((post) => post.data.portuguese !== '')
-    const tags = []
-    Posts.map((post) => post.data.tags.map((tag) => tags.push(tag)))
-    const setTags = tags.filter((t,i) => tags.indexOf(t) === i);
+  import './Styles/TagSidebar.css'
+    
+  const {posts} = Astro.props
+  const Posts = posts.filter((post) => post.data.portuguese !== '')
+  
+  const tags = []
+  Posts.map((post) => post.data.tags.map((tag) => tags.push(tag)))
+  const setTags = tags.filter((t,i) => tags.indexOf(t) === i);
 ---
 <div class="sidebar">
     <h3>Tags:</h3>
     <div class="Tags">{setTags.map((tag) => <a style="text-transform: capitalize;" href={"/tags/" + tag} data-astro-prefetch>{tag}</a>)}</div>
 </div>
-
-<style>
-.sidebar{
-  width: 80%;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 1em;
-  border: 1px solid var(--main);
-}
-.Tags{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-@media screen and (max-width: 610px){
-    .sidebar{
-    text-align: left;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width:auto;
-  }
-    .Tags{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 15px;
-  }
-}
-
-@media screen and (max-width: 459px){
-  .Tags{
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-</style>

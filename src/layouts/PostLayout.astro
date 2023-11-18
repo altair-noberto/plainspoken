@@ -1,13 +1,14 @@
 ---
 import BaseLayout from './BaseLayout.astro'
 import BlogSidebar from '../components/BlogSidebar.astro'
-
+import '../components/Styles/PostLayout.css'
 const {entry} = Astro.props
 const {frontmatter} = Astro.props
 const {headings} = Astro.props
 const englishVer = entry.id.slice(6).split('.')[0]
 
-const title = `Blog | ${frontmatter.title}`
+const title = `Plainspoken | ${frontmatter.title}`
+
 function toDateString(Date: Date){
     const months = ["01", "02", "03", "04", "05", "06", 
     "07", "08", "09", "10", "11", "12"]
@@ -22,7 +23,6 @@ function toDateString(Date: Date){
 
 <BaseLayout pageTitle={title}>
     <div class="mainPostDiv">
-        <BlogSidebar language={frontmatter.portuguese} headings={headings} />
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
         {frontmatter.portuguese !== '' ? <a href={frontmatter.portuguese + entry.id.split('.')[0]}>Versão em português</a> : <a href={'/blog/posts/' + englishVer}>English version</a>}
@@ -34,20 +34,6 @@ function toDateString(Date: Date){
         <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
         <slot />
     </div>
+    <BlogSidebar language={frontmatter.portuguese} headings={headings} />
     </div>
-    <style>
-        h1{
-            border-left: 6px solid var(--highlight);
-            padding-left: 0.3em;
-            border-bottom: none;
-        }
-        .mainPostDiv{
-            display: flex;
-        }
-        @media screen and (max-width: 625px){
-            .mainPostDiv{
-                flex-direction: column;
-            }
-        }
-    </style>
 </BaseLayout>

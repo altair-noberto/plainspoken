@@ -1,12 +1,22 @@
 ---
+import {Icon} from 'astro-icon'
+import './Styles/BlogSidebarAnimations.css'
+import './Styles/BlogSidebar.css'
 interface Props {
     headings: Array<Object>;
 }
 
 const {headings} = Astro.props
 const {language} = Astro.props
+
+let i = 0;
 ---
-<aside>
+<script src="./Scripts/ShowHideAside.js"></script>
+<a id="showHide"><Icon style="cursor: pointer; position: absolute; top: 17vh; right: 20px; display: none; opacity: 0;" ArrowLeft width="27" name="ic:baseline-keyboard-double-arrow-left"/></a>
+<aside id="aside">
+    <a id="showHide">
+        <Icon style="cursor: pointer;" ArrowRight width="27" name="ic:baseline-keyboard-double-arrow-right"/>    
+    </a>
     <p class="navText">{language === '' ? 'Nessa página:' : 'On this page:'}</p>
     <nav>
         <ul>
@@ -19,31 +29,4 @@ const {language} = Astro.props
             }
         </ul>
     </nav>
-    <style>
-        aside{
-            /* width: 20%; */
-            padding: 1em;
-            margin-left: 1em;
-            border: 1px solid var(--highlight);
-        }
-        aside > nav > ul{
-            list-style:none;
-        }
-        aside > nav> ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .navText{
-            font-weight: 600;
-        }
-        @media screen and (max-width: 625px){
-            aside{
-                width: 80%;
-                margin: 0 1em;
-            }
-            aside > nav {
-                width: 100%;
-            }
-        }
-    </style>
+</aside>

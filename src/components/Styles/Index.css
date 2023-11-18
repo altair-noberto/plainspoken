@@ -1,0 +1,23 @@
+.mainTitle{
+    font-size: 3rem;
+    text-align: center;
+    border-top: 1px solid var(--main);
+    border-bottom: 1px solid var(--main);
+    padding: 0.2em;
+    text-transform: uppercase;
+    font-family: 'Libre Bodoni', serif;
+  }
+  .mainTitle > span{
+    box-shadow: inset 0 -0.65em 0 0em var(--highlight), 0 0.25em 1em 0em var(--opacHigh);
+  }
+  
+  @media screen and (max-width: 400px) {
+    .mainTitle{
+      font-size: 2rem;
+    }
+  }
+  @media screen and (max-width: 289px) {
+    .mainTitle{
+      font-size: 1.7rem;
+    }
+  }

@@ -1,0 +1,51 @@
+[astro-icon]{
+    color: var(--main);
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  nav{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+    padding: 1em;
+  }
+  nav > div > div > a{
+    text-decoration: none;
+    color: rgb(150,150,150);
+    font-weight: 500;
+    transition: 0.4s;
+  }
+  nav > div > div > a:hover{
+    color: var(--main);
+    opacity: 1;
+  }
+
+  nav > div > div > a.selected{
+    color: var(--main);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+  }
+  .navMenu{
+    display: none;
+  }
+  @media screen and (max-width: 623px){
+    .navMenu{
+      display: initial;
+      position: block;
+      z-index: 1;
+    }
+    .navButtons{
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      left: -500%;
+      padding: 1em 2em;
+      height: 100%;
+      background-color: var(--background);
+      transition: 0.3s;
+    }
+    .navButtons.active{
+      left: 0;
+    }
+  }
