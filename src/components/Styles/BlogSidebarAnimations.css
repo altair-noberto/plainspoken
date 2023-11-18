@@ -1,6 +1,5 @@
 @keyframes hideAside {
     0%{
-        /* opacity: 1; */
         max-width: 20%;
     }
     50%{
@@ -27,20 +26,16 @@
 @keyframes showArrow{
     0%{
         opacity: 0;
-        /* display: none; */
     }
     100%{
         opacity: 1;
-        /* display: initial; */
     }
 }
 @keyframes hideArrow{
     0%{
         opacity: 1;
-        /* display: none; */
     }
     100%{
         opacity: 0;
-        /* display: initial; */
     }
 }

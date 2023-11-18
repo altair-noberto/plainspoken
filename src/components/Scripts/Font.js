@@ -1,5 +1,5 @@
 document.addEventListener('astro:page-load', () => {
-  document.querySelector('[Font]').addEventListener('click', Font)
+  document.querySelector('#Font').addEventListener('click', Font)
 })
 
 function Font(){
