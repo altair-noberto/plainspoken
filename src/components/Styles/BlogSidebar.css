@@ -1,8 +1,12 @@
 aside{
-    padding: 1em;
+    padding: 0.5em;
     border: 1px solid var(--main);
     max-width: 20%;
     transition: 0.2s ease;
+}
+aside > nav{
+    padding: 1em 0 0 0;
+    display: flex;
 }
 aside > nav > ul{
     list-style:none;
@@ -15,7 +19,7 @@ aside > nav> ul {
 .navText{
     font-weight: 600;
 }
-@media screen and (max-width: 702px){
+@media screen and (max-width: 750px){
     #showHide{
         display: none;
     }

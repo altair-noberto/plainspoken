@@ -3,17 +3,24 @@ h1{
     padding-left: 0.3em;
     border-bottom: none;
 }
+img{
+    max-width: 100%;
+}
 .mainPostDiv{
     display: flex;
 }
 .postDiv{
-    width: 90%;
+    width: 100%;
 }
-@media screen and (max-width: 702px){
+@media screen and (max-width: 750px){
     .mainPostDiv{
         flex-direction: column-reverse;
     }
+    img{
+        max-width: 80%;
+    }
     .postDiv{
-    margin-left: 0;
+    margin: 10px 0 0 0;
+    padding: 0;
 }
 }

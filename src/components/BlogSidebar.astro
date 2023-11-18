@@ -12,30 +12,18 @@ const {language} = Astro.props
 let i = 0;
 ---
 <script>
-    const Arrows = document.querySelectorAll('#showHide');
-
-Arrows.forEach((arrow) => {
-    arrow.addEventListener('click', () => {
-        if(document.querySelector('[ArrowRight]').style.display !== 'none'){
-            document.querySelector('[ArrowRight]').style.animation = 'hideArrow 0.5s forwards';
-    document.querySelector('[ArrowRight]').style.display = 'none';
-    document.querySelector('aside').style.animation = 'hideAside 0.5s forwards';
-    document.querySelector('[ArrowLeft]').style.display = 'initial';
-    document.querySelector('[ArrowLeft]').style.animation = 'showArrow 0.5s forwards';
-        }
-        else{
-            document.querySelector('aside').style.animation = 'showAside 0.5s forwards';
+</script>
+<a id="showHide" onclick="document.querySelector('aside').style.animation = 'showAside 0.5s forwards';
 document.querySelector('[ArrowLeft]').style.animation = 'hideArrow 0.5s forwards';
 document.querySelector('[ArrowLeft]').style.display = 'none';
 document.querySelector('[ArrowRight]').style.animation = 'showArrow 0.5s forwards';
-document.querySelector('[ArrowRight]').style.display = 'initial';
-        }
-    })
-})
-</script>
-<a id="showHide"><Icon style="cursor: pointer; position: absolute; top: 17vh; right: 20px; display: none; opacity: 0;" ArrowLeft width="27" name="ic:baseline-keyboard-double-arrow-left"/></a>
+document.querySelector('[ArrowRight]').style.display = 'initial';"><Icon style="cursor: pointer; position: absolute; top: 17vh; right: 20px; display: none; opacity: 0;" ArrowLeft width="27" name="ic:baseline-keyboard-double-arrow-left"/></a>
 <aside id="aside">
-    <a id="showHide">
+    <a id="showHide" onclick="document.querySelector('[ArrowRight]').style.animation = 'hideArrow 0.5s forwards';
+    document.querySelector('[ArrowRight]').style.display = 'none';
+    document.querySelector('aside').style.animation = 'hideAside 0.5s forwards';
+    document.querySelector('[ArrowLeft]').style.display = 'initial';
+    document.querySelector('[ArrowLeft]').style.animation = 'showArrow 0.5s forwards';">
         <Icon style="cursor: pointer;" ArrowRight width="27" name="ic:baseline-keyboard-double-arrow-right"/>    
     </a>
     <p class="navText">{language === '' ? 'Nessa página:' : 'On this page:'}</p>
