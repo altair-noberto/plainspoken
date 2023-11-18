@@ -11,7 +11,24 @@ const {pageTitle} = Astro.props
 			<slot />
 		</div>
 	</body>
-	<script is:inline src="src/components/Scripts/onStart.js"></script>
+	<script is:inline>
+		document.addEventListener('astro:page-load', () => {
+			localStorage.getItem('DarkLight') ? 
+			document.body.classList.add(localStorage.getItem('DarkLight')) : 
+			sessionStorage.setItem('DarkLight', 'light')
+			localStorage.getItem('Font') === 'sans-serif' ?
+			document.body.style.fontFamily = 'var(--font-body)' :
+			localStorage.setItem('Font', 'serif')
+		})
+		document.addEventListener('astro:after-swap', () => {
+			localStorage.getItem('DarkLight') ? 
+			document.body.classList.add(localStorage.getItem("DarkLight")) : 
+			localStorage.setItem('DarkLight', 'light')
+			localStorage.getItem('Font') === 'sans-serif' ?
+			document.body.style.fontFamily = 'var(--font-body)' :
+			localStorage.setItem('Font', 'serif')
+		})
+	</script>
 	<script src="../components/Scripts/Font.js"></script>
 	<script src="../components/Scripts/DarkLight.js"></script>
 </html>
