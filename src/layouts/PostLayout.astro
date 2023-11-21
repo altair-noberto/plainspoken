@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro'
 import BlogSidebar from '../components/BlogSidebar.astro'
 import '../components/Styles/PostLayout.css'
+import type { string } from 'astro/zod'
 const {entry} = Astro.props
 const {frontmatter} = Astro.props
 const {headings} = Astro.props
@@ -19,6 +20,27 @@ function toDateString(Date: Date){
 
     return `${day}/${mouth}/${year}`;
   }
+
+const embed = `<div style="font-family: 'Times New Roman', serif; gap: 15px; padding: 1em; margin: 0 auto; display: flex; flex-direction: column; width: 300px; max-height: 400px; box-shadow: 0 4px 4px 2px rgba(50,50,50,0.08);">
+      <style>
+        .plainslink{
+          text-decoration: underline;
+          color: var(--main);
+          text-decoration-color: var(--highlight);
+          transition: 0.2s;
+          cursor: pointer;
+        }
+        .plainslink:hover{
+          opacity: 0.7;
+        }
+      </style>
+      <a href="https://plainspoken.netlify.app/blog/posts/${entry.slug}" target="blank_" class="plainslink"><h2 style="border-left: 4px solid var(--highlight); padding-left: 0.3em;">${frontmatter.title}</h2></a>
+      <img src="${frontmatter.image.url}" alt="Post img" style="align-self: center; max-width: 100%;" />
+      <p>${frontmatter.description}</p>
+      <p>Published on: ${frontmatter.pubDate}</p>
+      <p>Written by: ${frontmatter.author}</p>
+      <p><b>Tags:</b>${frontmatter.tags.map((tag) => `<a class="plainslink" href={"/tags/" + ${tag}>${tag}</a>`)}</p>
+  </div>`;
 ---
 
 <BaseLayout pageTitle={title}>
@@ -29,9 +51,9 @@ function toDateString(Date: Date){
         <p>{frontmatter.portuguese === '' ? 'Publicado em: ' : 'Published on: '} {toDateString(frontmatter.pubDate)}</p>
         <p>{frontmatter.portuguese === '' ? 'Escrito por: ' : 'Written by: '}{frontmatter.author}</p>
         <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
+        {frontmatter.image.url ? <p style="text-align: center;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
         <br />
-        {frontmatter.image.url ? <p style="text-align: center;"><img src={frontmatter.image.url}/></p> : <span></span>}
-        <p style="border-bottom: 1px solid var(--main); padding-bottom: 0.5em;">{frontmatter.description}</p>
+        <hr />
         <slot />
     </div>
     <BlogSidebar language={frontmatter.portuguese} headings={headings} />
