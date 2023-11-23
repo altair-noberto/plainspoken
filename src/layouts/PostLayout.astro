@@ -24,7 +24,8 @@ function toDateString(Date: Date){
 const url = `https://plainspoken.netlify.app/blog/posts/${entry.slug}`
 
 const embed = `<div style="font-family: 'Times New Roman', serif; gap: 15px; padding: 1em; margin: 0 auto; display: flex; flex-direction: column; width: 300px; max-height: 400px; box-shadow: 0 4px 4px 2px rgba(50,50,50,0.08);"><style>.plainslink{text-decoration: underline;color: var(--main);text-decoration-color: var(--highlight);transition: 0.2s;cursor: pointer;}.plainslink:hover{opacity: 0.7;}</style><a href="${url}" target="blank_" class="plainslink"><h2 style="border-left: 4px solid var(--highlight); padding-left: 0.3em;">${frontmatter.title}</h2></a><img src="${frontmatter.image.url}" alt="Post img" style="align-self: center; max-width: 100%;" /><p>${frontmatter.description}</p><p>Published on: ${frontmatter.pubDate}</p><p>Written by: ${frontmatter.author}</p><p><b>Tags:</b>${frontmatter.tags.map((tag) => `<a class="plainslink" href={"/tags/" + ${tag}>${tag}</a>`)}</p></div>`;
-const description = frontmatter.description;
+
+const description = 'oi';
 ---
 
 <BaseLayout pageTitle={title}>
@@ -44,7 +45,7 @@ const description = frontmatter.description;
         <p>{frontmatter.portuguese === '' ? 'Escrito por: ' : 'Written by: '}{frontmatter.author}</p>
         <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         {frontmatter.image.url ? <p style="text-align: center;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
-        <p style="text-align: right;" onclick="if(navigator.share){navigator.share({title: `${title}`,url: `${url}`}).then(() => console.log('Compartilhado com sucesso')).catch((error) => console.log(`O seguinte erro ocorreu ao compartilhar: ${error}`))}else{window.scrollTo(0,0);document.querySelector('#modal').style.display = 'flex';document.body.style.overflow = 'hidden';}">
+        <p style="text-align: right;" onclick={`const title = '${title}'; const description = '${description}'; const url = '${url}';` + "if(navigator.share){navigator.share({title: `${title}`,text: `${description}`,url: `${url}`}).then(() => console.log('Compartilhado com sucesso')).catch((error) => console.log(`O seguinte erro ocorreu ao compartilhar: ${error}`))}else{window.scrollTo(0,0);document.querySelector('#modal').style.display = 'flex';document.body.style.overflow = 'hidden';}"}>
         <a><Icon width="27" name="mdi:share-variant-outline"/></a></p>
         <div id="modal">
           <div>
