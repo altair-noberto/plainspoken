@@ -2,7 +2,7 @@
 import BaseLayout from './BaseLayout.astro'
 import BlogSidebar from '../components/BlogSidebar.astro'
 import '../components/Styles/PostLayout.css'
-import type { string } from 'astro/zod'
+import {Icon} from 'astro-icon'
 const {entry} = Astro.props
 const {frontmatter} = Astro.props
 const {headings} = Astro.props
@@ -21,29 +21,21 @@ function toDateString(Date: Date){
     return `${day}/${mouth}/${year}`;
   }
 
-const embed = `<div style="font-family: 'Times New Roman', serif; gap: 15px; padding: 1em; margin: 0 auto; display: flex; flex-direction: column; width: 300px; max-height: 400px; box-shadow: 0 4px 4px 2px rgba(50,50,50,0.08);">
-      <style>
-        .plainslink{
-          text-decoration: underline;
-          color: var(--main);
-          text-decoration-color: var(--highlight);
-          transition: 0.2s;
-          cursor: pointer;
-        }
-        .plainslink:hover{
-          opacity: 0.7;
-        }
-      </style>
-      <a href="https://plainspoken.netlify.app/blog/posts/${entry.slug}" target="blank_" class="plainslink"><h2 style="border-left: 4px solid var(--highlight); padding-left: 0.3em;">${frontmatter.title}</h2></a>
-      <img src="${frontmatter.image.url}" alt="Post img" style="align-self: center; max-width: 100%;" />
-      <p>${frontmatter.description}</p>
-      <p>Published on: ${frontmatter.pubDate}</p>
-      <p>Written by: ${frontmatter.author}</p>
-      <p><b>Tags:</b>${frontmatter.tags.map((tag) => `<a class="plainslink" href={"/tags/" + ${tag}>${tag}</a>`)}</p>
-  </div>`;
+const url = `https://plainspoken.netlify.app/blog/posts/${entry.slug}`
+
+const embed = `<div style="font-family: 'Times New Roman', serif; gap: 15px; padding: 1em; margin: 0 auto; display: flex; flex-direction: column; width: 300px; max-height: 400px; box-shadow: 0 4px 4px 2px rgba(50,50,50,0.08);"><style>.plainslink{text-decoration: underline;color: var(--main);text-decoration-color: var(--highlight);transition: 0.2s;cursor: pointer;}.plainslink:hover{opacity: 0.7;}</style><a href="${url}" target="blank_" class="plainslink"><h2 style="border-left: 4px solid var(--highlight); padding-left: 0.3em;">${frontmatter.title}</h2></a><img src="${frontmatter.image.url}" alt="Post img" style="align-self: center; max-width: 100%;" /><p>${frontmatter.description}</p><p>Published on: ${frontmatter.pubDate}</p><p>Written by: ${frontmatter.author}</p><p><b>Tags:</b>${frontmatter.tags.map((tag) => `<a class="plainslink" href={"/tags/" + ${tag}>${tag}</a>`)}</p></div>`;
+const description = frontmatter.description;
 ---
 
 <BaseLayout pageTitle={title}>
+  <script>
+    const modal = document.querySelector('#modal');
+    window.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal.style.display === 'flex'){
+        modal.style.display = 'none'; document.body.style.overflow = 'initial';
+      }
+    })
+  </script>
     <div class="mainPostDiv">
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
@@ -52,10 +44,56 @@ const embed = `<div style="font-family: 'Times New Roman', serif; gap: 15px; pad
         <p>{frontmatter.portuguese === '' ? 'Escrito por: ' : 'Written by: '}{frontmatter.author}</p>
         <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         {frontmatter.image.url ? <p style="text-align: center;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
+        <p style="text-align: right;" onclick="if(navigator.share){navigator.share({title: `${title}`,url: `${url}`}).then(() => console.log('Compartilhado com sucesso')).catch((error) => console.log(`O seguinte erro ocorreu ao compartilhar: ${error}`))}else{window.scrollTo(0,0);document.querySelector('#modal').style.display = 'flex';document.body.style.overflow = 'hidden';}">
+        <a><Icon width="27" name="mdi:share-variant-outline"/></a></p>
+        <div id="modal">
+          <div>
+            <div style="display: flex; width: 100%; align-items: flex-end;">
+              <a id="closeModal" onclick="document.querySelector('#modal').style.display = 'none'; document.body.style.overflow = 'initial';"><Icon width="27" name="mdi:close"/></a>
+            </div>
+            <h3>Share</h3>
+            <div class="wrapper">
+              <label for="url">Url: </label>
+              <input type="text" name="url" id="url" value={url} readonly>
+            </div>
+            <div class="wrapper">
+              <label for="url">Embed: </label>
+              <input type="text" name="url" id="url" value={embed} readonly>
+            </div>
+            <br />
+          </div>
+        </div>
         <br />
         <hr />
         <slot />
     </div>
     <BlogSidebar language={frontmatter.portuguese} headings={headings} />
     </div>
+    <style>
+      #modal{
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.036);
+        backdrop-filter: blur(40px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      #modal > div{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        background-color: var(--background);
+        padding: 1em;
+        border-radius: 10px;
+      }
+      #modal > div > .wrapper{
+        display: flex;
+        gap: 10px;
+      }
+    </style>
 </BaseLayout>

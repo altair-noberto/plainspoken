@@ -70,3 +70,7 @@ h2{
   padding-top: 0;
   margin-top: 10px;
 }
+
+input[type="text"]{
+  color: var(--main); padding: 0.5em 1em; border-radius: 10px; background-color: transparent; border: 2px solid var(--main);
+}
