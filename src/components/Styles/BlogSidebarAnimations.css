@@ -9,6 +9,7 @@
         opacity: 0;
         max-width: 0;
         display: none;
+        position: absolute;
     }
 }
 @keyframes showAside {
@@ -21,6 +22,7 @@
         max-width: 20%;
         opacity: 1;
         display: initial;
+        position: initial;
     }
 }
 @keyframes showArrow{

@@ -13,7 +13,7 @@ let i = 0;
 ---
 <script>
 </script>
-<a id="showHide" onclick="document.querySelector('aside').style.animation = 'showAside 0.5s forwards';
+<a id="showHide" onclick="document.querySelector('#aside').style.animation = 'showAside 0.5s forwards';
 document.querySelector('#ArrowLeft').style.animation = 'hideArrow 0.5s forwards';
 document.querySelector('#ArrowLeft').style.display = 'none';
 document.querySelector('#ArrowRight').style.animation = 'showArrow 0.5s forwards';
@@ -22,7 +22,7 @@ document.querySelector('#ArrowRight').style.display = 'initial';">
 <aside id="aside">
     <a id="showHide" onclick="document.querySelector('#ArrowRight').style.animation = 'hideArrow 0.5s forwards';
     document.querySelector('#ArrowRight').style.display = 'none';
-    document.querySelector('aside').style.animation = 'hideAside 0.5s forwards';
+    document.querySelector('#aside').style.animation = 'hideAside 0.5s forwards';
     document.querySelector('#ArrowLeft').style.display = 'initial';
     document.querySelector('#ArrowLeft').style.animation = 'showArrow 0.5s forwards';">
         <span id="ArrowRight"><Icon style="cursor: pointer;" ArrowRight width="27" name="ic:baseline-keyboard-double-arrow-right"/></span>
