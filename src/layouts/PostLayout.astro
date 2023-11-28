@@ -40,13 +40,14 @@ const description = frontmatter.description;
     <div class="mainPostDiv">
     <div class="postDiv">
         <h1>{frontmatter.title}</h1>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 10px;">
+          <p style="color: var(--gray);">{toDateString(frontmatter.pubDate)} - {frontmatter.author}</p>
+          <a style="justify-self: end;"><Icon width="27" name="mdi:share-variant-outline"/></a></p>
+        </div>
         {frontmatter.portuguese !== '' ? <a href={frontmatter.portuguese + entry.id.split('.')[0]}>Versão em português</a> : <a href={'/blog/posts/' + englishVer}>English version</a>}
-        <p>{frontmatter.portuguese === '' ? 'Publicado em: ' : 'Published on: '} {toDateString(frontmatter.pubDate)}</p>
-        <p>{frontmatter.portuguese === '' ? 'Escrito por: ' : 'Written by: '}{frontmatter.author}</p>
         <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         {frontmatter.image.url ? <p style="text-align: center;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
         <p style="text-align: right;" onclick={`const title = '${title}'; const description = '${description}'; const url = '${url}';` + "if(navigator.share){navigator.share({title: `${title}`,text: `${description}`,url: `${url}`}).then(() => console.log('Compartilhado com sucesso')).catch((error) => console.log(`O seguinte erro ocorreu ao compartilhar: ${error}`))}else{window.scrollTo(0,0);document.querySelector('#modal').style.display = 'flex';document.body.style.overflow = 'hidden';}"}>
-        <a><Icon width="27" name="mdi:share-variant-outline"/></a></p>
         <div id="modal">
           <div>
             <div style="display: flex; width: 100%; align-items: flex-end;">
