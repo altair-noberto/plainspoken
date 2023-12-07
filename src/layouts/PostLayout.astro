@@ -37,9 +37,9 @@ const description = frontmatter.description;
       }
     })
   </script>
+    <h1>{frontmatter.title}</h1>
     <div class="mainPostDiv">
     <div class="postDiv">
-        <h1>{frontmatter.title}</h1>
         <div style="display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 10px;">
           <p style="color: var(--gray);">{toDateString(frontmatter.pubDate)} - {frontmatter.author}</p>
           <a style="justify-self: end;"><Icon width="27" name="mdi:share-variant-outline"/></a></p>
