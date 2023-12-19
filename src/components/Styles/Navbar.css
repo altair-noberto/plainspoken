@@ -42,6 +42,7 @@
       left: -500%;
       padding: 1em 2em;
       height: 100%;
+      width: 80%;
       background-color: var(--background);
       transition: 0.3s;
     }

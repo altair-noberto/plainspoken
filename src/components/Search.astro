@@ -7,3 +7,11 @@ import './Styles/Search.css'
     type="text" name="search" id="search" />
     <a style="cursor: pointer;" onclick="window.location.href = '/search/' + document.querySelector('#search').value">Search</a>
 </div>
+
+<style>
+      @media screen and (max-width: 300px){
+        div > input[type="text"]{
+            max-width: 50%;
+        }
+    }
+</style>
