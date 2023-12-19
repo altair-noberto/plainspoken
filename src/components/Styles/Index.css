@@ -1,12 +1,9 @@
 .mainTitle{
     font-size: 3rem;
     text-align: center;
+    font-weight: 900;
     padding: 0.2em;
     text-transform: uppercase;
-    background-image: var(--main-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
   
   @media screen and (max-width: 400px) {

@@ -13,7 +13,9 @@
   "dependencies": {
     "@astrojs/preact": "^3.0.1",
     "@astrojs/rss": "^3.0.0",
+    "@fontsource/eb-garamond": "^5.0.16",
     "@fontsource/libre-bodoni": "^5.0.8",
+    "@fontsource/playfair-display": "^5.0.18",
     "astro": "^3.4.3",
     "astro-icon": "^0.8.1",
     "preact": "^10.18.2"

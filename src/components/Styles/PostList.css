@@ -4,16 +4,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-
-  select{
-    font-size: 1.3rem;
-    font-family: 'Times New Roman', serif;
-    background-color: var(--background);
-    color: var(--main);
-    margin-top: 10px;
-    border: none;
-    outline: none;
-}
   
   @media screen and (max-width:610px){
       .postList{

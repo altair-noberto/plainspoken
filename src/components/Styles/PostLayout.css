@@ -2,10 +2,6 @@ h1{
     border-left: 6px solid var(--highlight);
     padding-left: 0.3em;
     border-bottom: none;
-    background-image: var(--main-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 img{
     max-width: 100%;

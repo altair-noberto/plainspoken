@@ -32,7 +32,7 @@ export default function Posts({posts}) {
             borderTop: '1px solid var(--main)'}}>
          <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
-            {fontSize: '0.9rem',
+            {
             display: 'flex',
             flexWrap: 'wrap',
             gap: '8px',
@@ -40,7 +40,7 @@ export default function Posts({posts}) {
             }}>
             <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
          <p>{post.data.description}</p>
-         <p>{toDateString(post.data.pubDate)}</p>
+         <p style={{fontFamily: 'initial'}}>{toDateString(post.data.pubDate)}</p>
         </div>) : ptbrPosts.map((post) => <div class="postCard"
          style={
             {display: 'flex', 
@@ -50,7 +50,7 @@ export default function Posts({posts}) {
             borderTop: '1px solid var(--main)'}}>
          <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
-            {fontSize: '0.9rem',
+            {
             display: 'flex',
             flexWrap: 'wrap',
             gap: '8px',
