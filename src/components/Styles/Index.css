@@ -1,18 +1,36 @@
 .mainTitle{
-    font-size: 3rem;
+    font-size: 6rem;
     text-align: center;
     font-weight: 900;
     padding: 0.2em;
     text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
   }
   
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 800px){
     .mainTitle{
-      font-size: 2rem;
+      padding: 0;
     }
   }
-  @media screen and (max-width: 289px) {
+
+  @media screen and (max-width: 600px) {
     .mainTitle{
-      font-size: 1.7rem;
+      font-size: 5rem;
+    }
+  }
+  @media screen and (max-width: 590px){
+    .mainTitle{
+      font-size: 4rem;
+    }
+  }
+  @media screen and (max-width: 455px) {
+    .mainTitle{
+      font-size: 3rem;
+    }
+  }
+
+  @media screen and (max-width: 285px) {
+    .mainTitle{
+      font-size: 2rem;
     }
   }

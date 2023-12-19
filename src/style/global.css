@@ -41,11 +41,15 @@
   margin: 0;
 }
 
+html{
+  margin-bottom: 10px;
+}
+
 body {
   --main: rgb(0, 0, 0);
   --background: #F2F2F2;
   --highlight: #999999;
-  --gray: #6f6f6f;
+  --gray: #9c9c9c;
   background-color: var(--background);
   font-size: 1.2rem;
   color: var(--main);
