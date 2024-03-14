@@ -8,6 +8,7 @@ image:
     alt: ''
 tags: ["second", "trollface", "Ta"]
 portuguese: ''
+fixed: 'false'
 ---
 
 Essa é literalmente uma cópia do primeiro post, mas eu mudei tudo.

@@ -1,6 +1,6 @@
 ---
 title: 'My First Blog Post'
-pubDate: 2023-10-19 17:12:00
+pubDate: 2023-10-17 17:12:00
 description: 'This is the first post.'
 author: 'Altair Noberto'
 image:
@@ -8,6 +8,7 @@ image:
     alt: ''
 tags: ["astro", "blogging", "Ta"]
 portuguese: '/blog/posts/pt-br/'
+fixed: 'false'
 ---
 
 Poggers. _This is an italic text_ **This is a bold text.**

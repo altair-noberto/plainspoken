@@ -1,23 +1,23 @@
 ---
-title: 'Why "plainspoken"'
+title: 'This is not a journal'
 pubDate: 2023-10-19 21:17:00
 description: 'Explaning the meaning of website.'
 author: 'Altair Noberto'
 image:
     url: ''
     alt: ''
-tags: ["plainspoken", "second-tag", "maybe"]
+tags: ["informative", "opinion", "welcome"]
 portuguese: '/blog/posts/pt-br/'
+fixed: 'true'
 ---
 
-## Texto grande, texto mucho grande
+## Why this isn't a journal?
 
-Because i want to have simple, and direct communication on this blog.
+Because this is not intended to be a journal.
+Indeed, i don't even know for what i've made this.
+But i'm going to use this for save my twenty one pilots crazy theorys and other things that i like to write.
 
-This site was designed to be simple, its only has a dark/light switch, a useless pages (about), a sans-serif font, and <span style="font-family: initial;">an option for changing the font for an serif.</span>
-### Subtitle
-
-**Refs**: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Source - 'Meaning of "Plain-spoken" by Albert Einsten</a>
+**Refs**: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Read "The importance of 'Not a Journal' by Altair Noberto for society" by Alan Turing</a>
 
 ## Title 2
 

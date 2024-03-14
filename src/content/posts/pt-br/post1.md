@@ -8,6 +8,7 @@ image:
     alt: ''
 tags: ["astro", "blogging", "Ta"]
 portuguese: ''
+fixed: 'false'
 ---
 
 Poggers. _Isso aqui é um texto em itálico_ **Isso é um texto em negrito.**

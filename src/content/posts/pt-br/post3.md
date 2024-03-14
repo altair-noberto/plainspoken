@@ -1,13 +1,14 @@
 ---
-title: 'Porque "plainspoken"'
+title: 'Isso não é um jornal'
 pubDate: 2023-10-19 21:17:00
 description: 'Explicando o significado desse site.'
 author: 'Altair Noberto'
 image:
     url: ''
     alt: ''
-tags: ["plainspoken", "second-tag", "maybe"]
+tags: ["informativo", "opinião", "bem-vindo"]
 portuguese: ''
+fixed: 'true'
 ---
 
 ## Texto grande, texto mucho grande
