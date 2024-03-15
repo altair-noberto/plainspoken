@@ -8,7 +8,7 @@ const unfilteredposts = await getCollection("posts")
 const Fixed = unfilteredposts.filter((post) => post.data.fixed === "true");
 const sortedposts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()})
 let posts : typeof unfilteredposts = [];
-for(let i = 0; i < 6; i++){
+for(let i = 0; i < 10; i++){
   if(sortedposts[i] === undefined) break; else if(sortedposts[i].data.fixed === "true") i++; else posts.push(sortedposts[i])
 }
 ---

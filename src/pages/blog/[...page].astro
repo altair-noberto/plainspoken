@@ -9,7 +9,7 @@ export async function getStaticPaths({paginate}){
     const unfilteredposts = await getCollection("posts")
     const posts = unfilteredposts.sort((a, b) => {return b.data.pubDate.getTime() - a.data.pubDate.getTime()})
     return paginate(posts, {
-        pageSize: 7,
+        pageSize: 10,
     })
 }
 const {page} = Astro.props;

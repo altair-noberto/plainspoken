@@ -1,10 +1,10 @@
 .mainTitle{
     font-size: 6rem;
     text-align: center;
-    font-weight: 900;
+    font-weight: 800;
     padding: 0.2em;
     text-transform: uppercase;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Playfair Display', serif;
   }
   
   @media screen and (max-width: 800px){

@@ -22,14 +22,16 @@ export default function Posts({posts}) {
     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
     <a style={{cursor: 'pointer'}} onClick={() => {if(language === '') {setLanguage('pt-br'); setMessage('Change language')} else {setLanguage(''); setMessage('Alterar Linguagem')}}}>{message}</a>
     <div class="postList">
-      {language !== 'pt-br' ? Posts.map((post) => 
-      <div class="postCard"
+      {language !== 'pt-br' ? Posts.map((post) =>
+      <div class={"postCard" + ' ' + post.data.fixed}
          style={
             {display: 'flex', 
             flexDirection: 'column',
             gap: '10px',
             paddingBottom: '1em',
-            borderTop: '1px solid var(--main)'}}>
+            paddingLeft: '1em',
+            border: '1px solid var(--main)',
+            }}>
          <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
             {
