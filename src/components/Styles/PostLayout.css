@@ -28,6 +28,9 @@ legend{
     width: 100%;
 }
 @media screen and (max-width: 750px){
+    .postTitle{
+        padding: 2em 0;
+    }
     .mainPostDiv{
         flex-direction: column-reverse;
     }
@@ -38,4 +41,16 @@ legend{
     margin: 10px 0 0 0;
     padding: 0;
 }
+}
+
+@media screen and (max-width: 442px){
+    .postTitle{
+        font-size: 6rem;
+    }
+}
+
+@media screen and (max-width: 328px){
+    .postTitle{
+        font-size: 5rem;
+    }
 }

@@ -80,3 +80,10 @@ h2{
 input[type="text"]{
   color: var(--main); padding: 0.5em 1em; border-radius: 10px; background-color: transparent; border: 2px solid var(--main);
 }
+
+.postTitle{
+  border: none;
+  text-align: center;
+  padding: 3em 0;
+  font-size: 8rem;
+}
