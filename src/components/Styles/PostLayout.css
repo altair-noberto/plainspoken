@@ -28,9 +28,6 @@ legend{
     width: 100%;
 }
 @media screen and (max-width: 750px){
-    .postTitle{
-        padding: 2em 0;
-    }
     .mainPostDiv{
         flex-direction: column-reverse;
     }
