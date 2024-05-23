@@ -8,7 +8,7 @@ image:
     alt: ''
 tags: ["second", "trollface", "Ta"]
 portuguese: '/blog/posts/pt-br/'
-fixed: 'false'
+fixed: 'true'
 ---
 
 this is literaty a copy of the first post, but i've changed everything. 

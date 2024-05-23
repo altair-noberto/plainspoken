@@ -15,23 +15,76 @@ export default function Posts({posts}) {
 
     return `${day}/${mouth}/${year}`;
   }
-  const Posts = posts.filter((post) => post.data.portuguese !== '')
+  const Posts = posts.filter((post) => post.data.portuguese !== '');
+  const notFixedPosts = Posts.filter((post) => post.data.fixed === 'false');
+  const fixedPosts = Posts.filter((post) => post.data.fixed === 'true');
   const ptbrPosts = posts.filter((post) => post.data.portuguese === '')
+  const notFixedPtPosts = ptbrPosts.filter((post) => post.data.fixed === 'false');
+  const fixedPtPosts = ptbrPosts.filter((post) => post.data.fixed === 'true');
   return (
     <>
     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
     <a style={{cursor: 'pointer'}} onClick={() => {if(language === '') {setLanguage('pt-br'); setMessage('Change language')} else {setLanguage(''); setMessage('Alterar Linguagem')}}}>{message}</a>
     <div class="postList">
-      {language !== 'pt-br' ? Posts.map((post) =>
-      <div class={"postCard" + ' ' + post.data.fixed}
+      {language !== 'pt-br' ? <div className="fixedPosts">
+         <h2>Fixed posts:</h2>
+         <div style={{    border: '1px solid var(--main)',}}>
+            {fixedPosts.map((post) => <div class={"postCardFixed"}
+            style={
+               {display: 'flex', 
+               flexDirection: 'column',
+               gap: '10px',
+               paddingBottom: '1em',
+               paddingLeft: '1em',
+               }}>
+            <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
+            <div style={
+               {
+               display: 'flex',
+               flexWrap: 'wrap',
+               gap: '8px',
+               textAlign: 'left'
+               }}>
+               <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
+            <p>{post.data.description}</p>
+            <p style={{fontFamily: 'initial'}}>{toDateString(post.data.pubDate)}</p>
+           </div>)}
+           </div>
+            <h2>Latest posts: </h2>
+      </div> : <div className="fixedPosts">
+         <h2>Posts Fixados: </h2>
+            {fixedPtPosts.map((post) => <div class={"postCard" + ' ' + post.data.fixed}
+            style={
+               {display: 'flex', 
+               flexDirection: 'column',
+               gap: '10px',
+               paddingBottom: '1em',
+               paddingLeft: '1em',
+               border: '1px solid var(--main)',
+               }}>
+            <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
+            <div style={
+               {
+               display: 'flex',
+               flexWrap: 'wrap',
+               gap: '8px',
+               textAlign: 'left'
+               }}>
+               <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
+            <p>{post.data.description}</p>
+            <p style={{fontFamily: 'initial'}}>{toDateString(post.data.pubDate)}</p>
+           </div>)}
+           <h2>Posts mais recentes: </h2>
+      </div>}
+      
+      {language !== 'pt-br' ? notFixedPosts.map((post) =>
+      <div class="postCard"
          style={
             {display: 'flex', 
             flexDirection: 'column',
             gap: '10px',
             paddingBottom: '1em',
-            paddingLeft: '1em',
-            border: '1px solid var(--main)',
-            }}>
+            borderTop: '1px solid var(--main)'}}>
          <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
             {
@@ -43,7 +96,7 @@ export default function Posts({posts}) {
             <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
          <p>{post.data.description}</p>
          <p style={{fontFamily: 'initial'}}>{toDateString(post.data.pubDate)}</p>
-        </div>) : ptbrPosts.map((post) => <div class="postCard"
+        </div>) : notFixedPtPosts.map((post) => <div class="postCard"
          style={
             {display: 'flex', 
             flexDirection: 'column',

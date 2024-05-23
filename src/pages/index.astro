@@ -5,20 +5,15 @@ import Posts from '../components/Posts.jsx'
 import '../components/Styles/Index.css'
 
 const unfilteredposts = await getCollection("posts")
-const Fixed = unfilteredposts.filter((post) => post.data.fixed === "true");
 const sortedposts = unfilteredposts.sort((a, b) => {return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()})
 let posts : typeof unfilteredposts = [];
 for(let i = 0; i < 10; i++){
-  if(sortedposts[i] === undefined) break; else if(sortedposts[i].data.fixed === "true") i++; else posts.push(sortedposts[i])
+  if(sortedposts[i] === undefined) break; else posts.push(sortedposts[i]);
 }
 ---
 
 <BaseLayout pageTitle="Home">
     <h1 class="mainTitle">Not a journal</h1>
-    <h2>Fixed post: </h2>
-    <br />
-    <Posts client:load posts={Fixed}/>
-    <h2>Latest posts: </h2>
     <br />
     <Posts client:load posts={posts}/>
 </BaseLayout>

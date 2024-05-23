@@ -3,13 +3,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-.true{
+.fixedPosts{
     grid-column: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
   
-  @media screen and (max-width:610px){
+  @media screen and (max-width:750px){
       .postList{
-          width: auto;
+          width: 100%;
           grid-template-columns: 1fr;
+      }
+      .postCard{
+        grid-column: 1 / 3;
       }
   }
