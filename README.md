@@ -1,3 +1,3 @@
-# Plainspoken, with Astro
+# Not a journal
 
-Plainspoken is a simplified version of "Centennial".
+This gonna be my personal blog.
