@@ -28,8 +28,8 @@ export default function Posts({posts}) {
     <div class="postList">
       {language !== 'pt-br' ? <div className="fixedPosts">
          <h2>Fixed posts:</h2>
-         <div style={{    border: '1px solid var(--main)',}}>
-            {fixedPosts.map((post) => <div class={"postCardFixed"}
+         <div>
+            {fixedPosts.map((post) => <div class={"postCard"}
             style={
                {display: 'flex', 
                flexDirection: 'column',
@@ -60,7 +60,6 @@ export default function Posts({posts}) {
                gap: '10px',
                paddingBottom: '1em',
                paddingLeft: '1em',
-               border: '1px solid var(--main)',
                }}>
             <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
             <div style={
@@ -84,14 +83,14 @@ export default function Posts({posts}) {
             flexDirection: 'column',
             gap: '10px',
             paddingBottom: '1em',
-            borderTop: '1px solid var(--main)'}}>
+            }}>
          <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
             {
             display: 'flex',
             flexWrap: 'wrap',
             gap: '8px',
-            textAlign: 'left'
+            textAlign: 'left',
             }}>
             <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
          <p>{post.data.description}</p>
@@ -101,8 +100,8 @@ export default function Posts({posts}) {
             {display: 'flex', 
             flexDirection: 'column',
             gap: '10px',
-            paddingBottom: '1em',
-            borderTop: '1px solid var(--main)'}}>
+            paddingBottom: '1em'
+            }}>
          <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
          <div style={
             {

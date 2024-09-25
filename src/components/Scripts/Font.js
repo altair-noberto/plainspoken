@@ -6,7 +6,7 @@ function Font(){
   const body = document.querySelector('body')
   if(localStorage.getItem('Font') === 'sans-serif' || !localStorage.getItem('Font')){
     localStorage.setItem('Font', 'serif');
-    body.style.fontFamily = '\'Playfair Display\', serif';
+    body.style.fontFamily = '\'Lora\', serif';
   }
   else {
     localStorage.setItem('Font', 'sans-serif');
