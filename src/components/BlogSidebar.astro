@@ -11,14 +11,12 @@ const {language} = Astro.props
 
 let i = 0;
 ---
-<script>
-</script>
 <a id="showHide" onclick="document.querySelector('#aside').style.animation = 'showAside 0.5s forwards';
 document.querySelector('#ArrowLeft').style.animation = 'hideArrow 0.5s forwards';
 document.querySelector('#ArrowLeft').style.display = 'none';
 document.querySelector('#ArrowRight').style.animation = 'showArrow 0.5s forwards';
 document.querySelector('#ArrowRight').style.display = 'initial';">
-<span id="ArrowLeft" style="cursor: pointer; position: absolute; top: 17vh; right: 20px; display: none; opacity: 0;"><Icon ArrowLeft width="27" name="ic:baseline-keyboard-double-arrow-left"/></span></a>
+<span id="ArrowLeft" style="cursor: pointer; position: relative; top: 0.5em; display: none; opacity: 0;"><Icon ArrowLeft width="27" name="ic:baseline-keyboard-double-arrow-left"/></span></a>
 <aside id="aside">
     <a id="showHide" onclick="document.querySelector('#ArrowRight').style.animation = 'hideArrow 0.5s forwards';
     document.querySelector('#ArrowRight').style.display = 'none';

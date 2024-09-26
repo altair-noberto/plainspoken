@@ -24,7 +24,7 @@ export default function Posts({posts}) {
   return (
     <>
     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-    <a style={{cursor: 'pointer'}} onClick={() => {if(language === '') {setLanguage('pt-br'); setMessage('Change language')} else {setLanguage(''); setMessage('Alterar Linguagem')}}}>{message}</a>
+    <a style={{cursor: 'pointer', maxWidth: 'fit-content'}} onClick={() => {if(language === '') {setLanguage('pt-br'); setMessage('Change language')} else {setLanguage(''); setMessage('Alterar Linguagem')}}}>{message}</a>
     <div class="postList">
       {language !== 'pt-br' ? <div className="fixedPosts">
          <h2>Fixed posts:</h2>
