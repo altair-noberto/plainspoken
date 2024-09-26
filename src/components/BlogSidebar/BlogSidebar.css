@@ -1,24 +1,29 @@
 aside{
-    padding: 0.5em;
-    border: 1px solid var(--main);
-    max-width: 20%;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+    background-color: var(--background);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
     transition: 0.2s ease;
 }
 aside > nav{
-    padding: 1em 0 0 0;
     display: flex;
+    width: 100%;
 }
 aside > nav > ul{
     list-style:none;
-}
-aside > nav> ul {
+    padding: 0 10%;
+    width: 90%;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+}
+aside > nav > ul > li {
+   list-style: none; 
 }
 .navText{
     font-weight: 600;
 }
+
 @media screen and (max-width: 750px){
     #showHide{
         display: none;

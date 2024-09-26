@@ -10,6 +10,12 @@
     gap: 1em;
     padding: 1em;
   }
+
+  .navButtons{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
   nav > div > div > a{
     text-decoration: none;
     color: rgb(150,150,150);
@@ -28,6 +34,12 @@
   }
   .navMenu{
     display: none;
+  }
+
+  .OptionsWrapper{
+    justify-self: end;
+    display: flex;
+    gap: 10px;
   }
   @media screen and (max-width: 623px){
     .navMenu{

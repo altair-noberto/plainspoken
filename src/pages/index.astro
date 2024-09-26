@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
-import Posts from '../components/Posts.jsx'
+import Posts from '../components/PostList/Posts.jsx';
 import '../components/Styles/Index.css'
 
 const unfilteredposts = await getCollection("posts")
@@ -13,7 +13,9 @@ for(let i = 0; i < 10; i++){
 ---
 
 <BaseLayout pageTitle="Home">
+  <div class="container">
     <h1 class="mainTitle">Not a journal</h1>
     <br />
     <Posts client:load posts={posts}/>
+  </div>
 </BaseLayout>

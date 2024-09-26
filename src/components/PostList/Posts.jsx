@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks';
-import './Styles/PostList.css'
+import './PostList.css'
 export default function Posts({posts}) {
 
   const [language, setLanguage] = useState('')

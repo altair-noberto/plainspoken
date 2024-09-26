@@ -1,19 +1,22 @@
 ---
-import {Icon} from 'astro-icon'
-const {pages} = Astro.props
-let i;
+import {Icon} from 'astro-icon';
+import './Pagination.css';
+
+const {pages} = Astro.props;
+
+let i: number | null;
 let j = 8
 let k = 2
 if(pages.currentPage === 1){
-    i = '';
+    i = 0;
     k = 2
 }else {i = pages.lastPage; k = pages.currentPage}
 
 if(j+(pages.currentPage-1) <= pages.lastPage) {j = j+(pages.currentPage-1)} else j = pages.lastPage;
 
 
-function pagebtn(i){
-    let pageBtn = [];
+function pagebtn(){
+    let pageBtn: Array<number> = [];
     for(k; k <= j; k++){
         pageBtn.push(k)
     }
@@ -21,13 +24,13 @@ function pagebtn(i){
 }
 ---
 
-<div style="margin-top: 10px;width: 100%; display: flex; align-itens: center; justify-content: center; gap: 10px;" class="pages">
+<div class="pages">
 {pages.url.prev && (
     <div><a href={pages.url.prev}><Icon name="mdi:arrow-left" size='24'/></a></div>
 )}
 <div style="display: flex; gap: 10px;">
     <a href={'/' + pages.url.current.split('/')[1]}>1</a>
-    {pagebtn(i).map((a) => <a href={"/blog/" + a}>{a}</a>)}
+    {pagebtn().map((a) => <a href={"/blog/" + a}>{a}</a>)}
 </div>
 {pages.url.next && (
     <div><a href={pages.url.next}><Icon name="mdi:arrow-right" size='24'/></a></div>

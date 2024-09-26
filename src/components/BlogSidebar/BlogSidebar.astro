@@ -1,0 +1,27 @@
+---
+import './BlogSidebarAnimations.css'
+import './BlogSidebar.css'
+interface Props {
+    headings: Array<Object>;
+}
+
+const {headings} = Astro.props
+const {language} = Astro.props
+
+let i = 0;
+---
+<aside id="aside">
+    <nav>
+        <ul>
+            {
+                headings.map((heading: any) => (
+                    heading.depth < 4 ? 
+                    <li>
+                        <a style={heading.depth > 2 ? "margin-left: " + heading.depth * 8 + "px;" : "margin-left: 0;"} href={`#${heading.slug}`}>{heading.text}</a>    
+                    </li>
+                    : ''
+                ))
+            }
+        </ul>
+    </nav>
+</aside>

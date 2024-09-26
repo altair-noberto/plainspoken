@@ -17,12 +17,46 @@ legend{
     font-size: 1em;
     font-weight: 400;
     font-style: italic;
-    /* color: var(--highlight); */
     text-align: center;
+}
+
+.postTitle{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.author{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.postData{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-bottom: 10px;
+    color: var(--gray);
+}
+
+.tags{
+    color: var(--gray);
+    display: flex;
+    gap: 10px;
+    flex-wrap: Wrap;
+    justify-content: flex-end;
+}
+
+.tags > a{
+    color: var(--gray);
+    text-transform: capitalize;
 }
 
 .mainPostDiv{
     display: flex;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 3em;
 }
 .postDiv{
     width: 100%;
@@ -37,5 +71,6 @@ legend{
     .postDiv{
     margin: 10px 0 0 0;
     padding: 0;
+    padding-bottom: 3em;
     }
 }

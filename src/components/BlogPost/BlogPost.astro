@@ -3,7 +3,7 @@ const {url, title, description, date, tags} = Astro.props
 ---
 <div class="postCard">
     <h3><a href={url}>{title}</a></h3>
-    <div style="font-size: 0.9rem" class="tags"><strong>Tags: </strong> {tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;">{tag}</a>)}</div>
+    <div class="tags"><strong>Tags: </strong> {tags.map((tag: string) => <a href={"/tags/" + tag}>{tag}</a>)}</div>
     <p>{description}</p>
     <p>{date.slice(8,10) + '/' + date.slice(5,7) + '/' + date.slice(0,4)}</p>
 </div>

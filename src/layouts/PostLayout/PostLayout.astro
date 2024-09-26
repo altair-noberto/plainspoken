@@ -1,7 +1,7 @@
 ---
-import BaseLayout from './BaseLayout.astro'
-import BlogSidebar from '../components/BlogSidebar.astro'
-import '../components/Styles/PostLayout.css'
+import BaseLayout from '../BaseLayout.astro'
+import BlogSidebar from '../../components/BlogSidebar/BlogSidebar.astro'
+import './PostLayout.css'
 import {Icon} from 'astro-icon'
 const {entry} = Astro.props
 const {frontmatter} = Astro.props
@@ -37,40 +37,23 @@ const description = frontmatter.description;
       }
     })
   </script>
-    <h1 class="postTitle">{frontmatter.title}</h1>
     <div class="mainPostDiv">
     <div class="postDiv">
-        <div style="display: grid; grid-template-columns: 3fr 1fr; margin-bottom: 10px;">
-          <p style="color: var(--gray);">{toDateString(frontmatter.pubDate)} - {frontmatter.author}</p>
-          <a style="justify-self: end;"><Icon width="27" name="mdi:share-variant-outline"/></a></p>
+      
+      <div class="postHeader">
+        <h1 class="postTitle">{frontmatter.title}</h1>
+        <h3 class="author">By: {frontmatter.author}</h3>
+        <div class="postData">
+          <p>{toDateString(frontmatter.pubDate)}</p>
+          <p class="tags"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         </div>
         {frontmatter.portuguese !== '' ? <a href={frontmatter.portuguese + entry.id.split('.')[0]}>Versão em português</a> : <a href={'/blog/posts/' + englishVer}>English version</a>}
-        <p style="display: flex; gap: 10px; flex-wrap: Wrap;"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
-        {frontmatter.image.url ? <p style="text-align: center;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
-        <p style="text-align: right;" onclick={`const title = '${title}'; const description = '${description}'; const url = '${url}';` + "if(navigator.share){navigator.share({title: `${title}`,text: `${description}`,url: `${url}`}).then(() => console.log('Compartilhado com sucesso')).catch((error) => console.log(`O seguinte erro ocorreu ao compartilhar: ${error}`))}else{window.scrollTo(0,0);document.querySelector('#modal').style.display = 'flex';document.body.style.overflow = 'hidden';}"}>
-        <div id="modal">
-          <div>
-            <div style="display: flex; width: 100%; align-items: flex-end;">
-              <a id="closeModal" onclick="document.querySelector('#modal').style.display = 'none'; document.body.style.overflow = 'initial';"><Icon width="27" name="mdi:close"/></a>
-            </div>
-            <h3>Share</h3>
-            <div class="wrapper">
-              <label for="url">Url: </label>
-              <input type="text" name="url" id="url" value={url} readonly>
-            </div>
-            <div class="wrapper">
-              <label for="url">Embed: </label>
-              <input type="text" name="url" id="url" value={embed} readonly>
-            </div>
-            <br />
-          </div>
-        </div>
-        <br />
-        <hr />
+        {frontmatter.image.url ? <p style="text-align: center; margin-top: 10px;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
+      </div>
         <slot />
     </div>
-    <BlogSidebar language={frontmatter.portuguese} headings={headings} />
     </div>
+    <BlogSidebar language={frontmatter.portuguese} headings={headings} />
     <style>
       #modal{
         top: 0;

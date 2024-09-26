@@ -33,11 +33,11 @@ body.dark{
   --background: #110c0c;
 }
 
-.mainDiv, .postDiv, ol, ul{
+.container, .postDiv, ol, ul{
   padding: 0.5em 0.5em 0 0.5em;
 }
 
-.mainDiv, .postDiv > p, h2, h3, h4, h5{
+.postDiv > p, h2, h3, h4, h5{
   padding-top: 0.5em;
 }
 
@@ -77,7 +77,16 @@ h2{
 }
 
 input[type="text"]{
-  color: var(--main); padding: 0.5em 1em; border-radius: 10px; background-color: transparent; border: 2px solid var(--main);
+  color: var(--main);
+  padding: 0.3em 0.5em;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid var(--main);
+  transition: 0.2s;
+}
+
+input[type="text"]:hover, input[type="text"]:focus{
+  opacity: 0.8;
 }
 
 .postTitle{
