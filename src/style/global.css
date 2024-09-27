@@ -94,3 +94,14 @@ input[type="text"]:hover, input[type="text"]:focus{
   text-align: center;
   font-size: 3rem;
 }
+
+@keyframes Show{
+  0%{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100%{
+    opacity: 1;
+    transform: none;
+  }
+}

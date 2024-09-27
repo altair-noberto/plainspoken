@@ -1,28 +1,12 @@
 ---
-title: 'My First Blog Post'
+title: 'Meu primeiro post'
 pubDate: 2023-10-17 17:12:00
-description: 'This is the first post.'
-author: 'Altair Noberto'
+description: 'Esse é o primeiro post.'
+author: 'My one'
 image:
     url: 'https://www.petz.com.br/blog/wp-content/uploads/2020/08/cat-cafe-pet.jpg'
     alt: ''
 tags: ["astro", "blogging", "Ta"]
-portuguese: '/blog/posts/pt-br/'
 ---
 
-Poggers. _This is an italic text_ **This is a bold text.**
-
-## What I've accomplished
-
-1. **Pooping in my pants**: First, i did some shit.
-
-2. **Two (too)**: `.this is a mark.` `or a code tag.`
-
-3. **Google link**: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">this is a google anchor. click for google search.</a>
-
-4. **Image**: 
-<img src="https://www.petz.com.br/blog/wp-content/uploads/2020/08/cat-cafe-pet.jpg" attr="Image 1 - A cute cat looking to nowhere"/>
-
-### H3
-#### H4
-##### H5
+Lorem ipsum dolor, **sit amet consectetur** *adipisicing elit*. Porro vitae deserunt commodi, <mark>unde exercitationem earum?</mark> Harum, delectus? Facere, [maiores labore](https://plainspoken.netlify.app).

@@ -28,7 +28,7 @@ function pagebtn(){
 {pages.url.prev && (
     <div><a href={pages.url.prev}><Icon name="mdi:arrow-left" size='24'/></a></div>
 )}
-<div style="display: flex; gap: 10px;">
+<div class="pagWrapper">
     <a href={'/' + pages.url.current.split('/')[1]}>1</a>
     {pagebtn().map((a) => <a href={"/blog/" + a}>{a}</a>)}
 </div>

@@ -14,24 +14,12 @@ export default function PostCard({post}){
       }
 
     return (
-        <div class="postCard"
-        style={
-           {display: 'flex', 
-           flexDirection: 'column',
-           gap: '10px',
-           paddingBottom: '1em',
-           }}>
+        <div class="postCard">
         <h3><a href={`/blog/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a></h3>
-        <div style={
-           {
-           display: 'flex',
-           flexWrap: 'wrap',
-           gap: '8px',
-           textAlign: 'left',
-           }}>
+        <div class="tags">
            <strong>Tags: </strong> {post.data.tags.map((tag) => <a href={"/tags/" + tag} style="text-transform: capitalize;" data-astro-prefetch>{tag}</a>)}</div>
         <p>{post.data.description}</p>
-        <p style={{fontFamily: 'initial'}}>{toDateString(post.data.pubDate)}</p>
+        <p>{toDateString(post.data.pubDate)}</p>
        </div>
     )
 }

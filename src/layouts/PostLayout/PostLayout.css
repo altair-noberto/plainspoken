@@ -57,9 +57,19 @@ legend{
     display: flex;
     width: 80%;
     margin: 0 auto;
+    animation: Show 0.8s;
 }
+
 .postDiv{
     width: 100%;
+}
+
+.ol{
+    margin-left: 0.5em;
+}
+
+p{
+    font-weight: 300;
 }
 @media screen and (max-width: 750px){
     .mainPostDiv{

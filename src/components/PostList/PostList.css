@@ -8,7 +8,19 @@
   .postCard{
     padding: 1em;
     box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 1em;
   }
+
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    text-align: left;
+  }
+
 .fixedPosts{
     grid-column: 1 / 3;
     display: flex;

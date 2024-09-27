@@ -29,17 +29,8 @@ const description = frontmatter.description;
 ---
 
 <BaseLayout pageTitle={title}>
-  <script>
-    const modal = document.querySelector('#modal');
-    window.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape' && modal.style.display === 'flex'){
-        modal.style.display = 'none'; document.body.style.overflow = 'initial';
-      }
-    })
-  </script>
     <div class="mainPostDiv">
     <div class="postDiv">
-      
       <div class="postHeader">
         <h1 class="postTitle">{frontmatter.title}</h1>
         <h3 class="author">By: {frontmatter.author}</h3>
@@ -47,10 +38,11 @@ const description = frontmatter.description;
           <p>{toDateString(frontmatter.pubDate)}</p>
           <p class="tags"><strong>Tags: </strong>{frontmatter.tags.map((tag) => <a href={"/tags/" + tag}>{tag}</a>)}</p>
         </div>
-        {frontmatter.portuguese !== '' ? <a href={frontmatter.portuguese + entry.id.split('.')[0]}>Versão em português</a> : <a href={'/blog/posts/' + englishVer}>English version</a>}
         {frontmatter.image.url ? <p style="text-align: center; margin-top: 10px;"><img style="max-height: 70vh;" src={frontmatter.image.url}/></p> : <span></span>}
       </div>
+      <div class="postContent">
         <slot />
+      </div>
     </div>
     </div>
     <script is:inline>
