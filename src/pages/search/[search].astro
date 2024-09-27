@@ -27,6 +27,8 @@ const {posts} = Astro.props;
 ---
 
 <BaseLayout pageTitle={search}>
-    <h1 style="border-bottom: none; padding-bottom: 0.1em;">Posts with '{search}'</h1>
-    <Posts posts={posts} />
+    <div class="container">
+        <h1 style="border-bottom: none; padding-bottom: 0.1em;">Posts with '{search}'</h1>
+        <Posts posts={posts} />
+    </div>
 </BaseLayout>
