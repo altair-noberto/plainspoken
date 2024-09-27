@@ -8,7 +8,6 @@ image:
     alt: ''
 tags: ["informative", "opinion", "welcome"]
 portuguese: '/blog/posts/pt-br/'
-fixed: 'true'
 ---
 
 ## Why this isn't a journal?

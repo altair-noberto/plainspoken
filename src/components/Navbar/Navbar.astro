@@ -3,14 +3,12 @@
   import Search from '../Search/Search.astro';
   import Options from '../Options/Options.astro';
   import './Navbar.css';
-  const {selected} = Astro.props;
+  let {selected} = Astro.props;
 ---
 
 <nav>
 <div>
-<a onclick="
-
-const navbar = document.querySelector('.navButtons');
+<a onclick="const navbar = document.querySelector('.navButtons');
 if(navbar.classList.contains('active')){
   navbar.classList.remove('active');
 } else {

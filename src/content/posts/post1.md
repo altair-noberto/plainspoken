@@ -8,7 +8,6 @@ image:
     alt: ''
 tags: ["astro", "blogging", "Ta"]
 portuguese: '/blog/posts/pt-br/'
-fixed: 'false'
 ---
 
 Poggers. _This is an italic text_ **This is a bold text.**
