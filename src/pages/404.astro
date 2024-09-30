@@ -5,19 +5,19 @@ const page = Astro.url.pathname
 
 <BaseLayout pageTitle="Not found">
     {page.includes('/search') && (
-        <p>No results with "<i>{page.split('/')[2]}</i>" has found.</p>
+        <p>Nenhum resultado encontrado para "<i>{page.split('/')[2]}</i>".</p>
         <hr />
-        <h3><a href="/">Return to home</a></h3>
+        <h3><a href="/">Voltar ao início</a></h3>
     )}
     {page.includes('/tags') && (
-    <p>No posts tagged with "<i>{page.split('/')[2]}</i>" has found.</p>
+    <p>Nenhum post marcado com "<i>{page.split('/')[2]}</i>" foi encontrado.</p>
     <hr />
-    <h3><a href="/">Return to home</a></h3>
+    <h3><a href="/">Voltar ao início</a></h3>
 )}
     {page.includes('/search') === false && page.includes('/tags') === false ? 
-    <h2>Page not found</h2>
+    <h2>Pagina não encontrada</h2>
     <br />
-    <h3><a href="/">Return to home</a></h3>
+    <h3><a href="/">Voltar ao início</a></h3>
     : <span></span>}
     
 </BaseLayout>
